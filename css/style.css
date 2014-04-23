@@ -3,7 +3,7 @@ body {
     width: 100%;
     background: url('../img/body.jpg') no-repeat center top #A6C1E8;
     background-size: auto auto;
-    min-height: 1739px;
+    /*min-height: 1739px;*/
 	font-family: 'Spinnaker', sans-serif;
 	color: #FFF;
 }
@@ -214,18 +214,18 @@ h1.page-title {
 	background: url('../img/border_bottom.png') left top no-repeat;
 }
 
-.destinations-left-col {
+.destinations-left-col, .vacations-right-col {
 	width: 635px;
 	height: 250px;
 	border: 8px #FFF solid;
 }
 
-.destinations-left-col img {	
+.destinations-left-col img, .vacations-right-col img {	
 	width: 100%;
 	height: 100%;	
 }
 
-.destinations-right-col {	
+.destinations-right-col, .vacations-left-col {	
 	margin-left: -8px;
 	width: 353px;
 	height: 250px;
@@ -330,6 +330,83 @@ h1.page-title {
 	line-height: 30px;
 	font-size: 25px;
 	font-weight: 400;
+}
+
+.vacations-left-col {
+	margin-left: 0px;
+}
+
+.vacations-left-col span {
+	font-size: 25px;
+	text-transform: uppercase;
+	line-height: 25px;
+}
+
+.vacations-right-col {
+	margin-left: -8px;
+}
+
+.vacation-item {
+	float: left;
+	margin-right: 13.25px;
+	width: 235px;
+	background: rgba(255, 255, 255, 0.7);
+	color: #305589;
+	margin-bottom: 20px;
+}
+
+.vacation-item.last {
+	margin-right: 0px;
+}
+
+.vacation-item.last:after {
+	clear: both;
+}
+
+.vacation-item img {
+	width: 235px;
+	height: 195px;
+}
+
+.vacation-item .wrap {
+	position: relative;
+	height: 305px;
+	padding: 0px 20px 0px 10px;
+}
+
+.vacation-item .wrap h2 {
+	margin: 0px;
+	font-size: 53px;
+	line-height: 65px;	
+	margin-bottom: 5px;
+}
+
+.vacation-item .wrap strong {
+	display: block;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.vacation-item .wrap > span {
+	display: block;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.vacation-item .wrap p {
+	font-size: 13px;
+	line-height: 13px;
+	margin-top: 22px;
+}
+
+.vacation-item .wrap .link-seemore {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	font-size: 14px;
+	color: #305589;
 }
 
 .footer .row-1 {
