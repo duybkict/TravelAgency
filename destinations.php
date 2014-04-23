@@ -68,7 +68,7 @@ $title_for_layout = 'Bon Voyage | Travel Agency';
 						<div class="clearfix"></div>
 						<a href="#" class="seemore">&plus;</a>
 					</div>
-					
+
 					<div class="destination-item">
 						<div class="wrap pull-left">
 							<h3>Asia</h3>
@@ -78,7 +78,7 @@ $title_for_layout = 'Bon Voyage | Travel Agency';
 						<div class="clearfix"></div>
 						<a href="#" class="seemore">&plus;</a>
 					</div>
-					
+
 					<div class="destination-item">
 						<div class="wrap pull-left">
 							<h3>Australia</h3>
@@ -88,7 +88,7 @@ $title_for_layout = 'Bon Voyage | Travel Agency';
 						<div class="clearfix"></div>
 						<a href="#" class="seemore">&plus;</a>
 					</div>
-					
+
 					<div class="destination-item">
 						<div class="wrap pull-left">
 							<h3>Canada</h3>
@@ -101,25 +101,21 @@ $title_for_layout = 'Bon Voyage | Travel Agency';
 
 				</div>
 
-				<div class="home-right-col-1 pull-right">
-					<h2>$649</h2>
-					<div class="white-content">
-						<p>Romantic Provence Getaway</p>
-						<a href="#" class="seemore">&plus;</a>
-						<div class="border-bottom"></div>
-					</div>
+				<div class="destinations-right-col-1 text-center pull-right">
+					<p class="p-intro">FIND SUGGESTED HOTELS, DAY TRIPS & ADVENTURE TIPS</p>
 
-					<h2>$449</h2>
-					<div class="white-content">
-						<p>8 Nights Alaska Cruise All Inclusive</p>
-						<a href="#" class="seemore">&plus;</a>
-						<div class="border-bottom"></div>
+					<div class="div-intro">
+						Bon Voyage offers travel information on a wide range of destinations. Learn about your destination today and contact us for a quote.
 					</div>
-
-					<h2>$649</h2>
+					
+					<h2>Need Help?</h2>
+					<img class="h2-icon" src="img/help.png" />
+					
 					<div class="white-content">
-						<p>4 Nights All Inclusive Cancun Resort & Spa</p>
-						<a href="#" class="seemore">&plus;</a>
+						<p>Booking a major trip is exciting, but it can also be a bit overwhelming. </p>
+						<p>We understand. That's why we have live Travel Experts here to take care of your every need, making your trip stress-free & amazing.</p>
+						<strong style="margin-top: 10px;">Call Us Today </strong>
+						<strong>1-800-000-0000</strong>
 						<div class="border-bottom"></div>
 					</div>
 				</div>
