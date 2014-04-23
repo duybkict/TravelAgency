@@ -12,12 +12,12 @@ a {transition: color 0.4s ease 0s; color: #FFF;}
 a:hover, a:focus {text-decoration: none;}
 .container {width: 1010px;}
 
-.div-header {
+.div-logo {
 	text-align: center;
 	height: 195px;
 }
 
-.div-header .logo {
+.div-logo .logo {
 	margin: 25px auto 16px;
 	background: url('../img/logo.png') no-repeat;
 	background-size: cover;
@@ -25,13 +25,13 @@ a:hover, a:focus {text-decoration: none;}
 	height: 80px;
 }
 
-.div-header h1 {
+.div-logo h1 {
 	margin: 0px;	
 	font-size: 30px;
 	color: #1C3353;
 }
 
-.div-header span {
+.div-logo span {
 	line-height: 14px;
 	font-size: 13px;
 	color: #1C3353;
@@ -60,6 +60,18 @@ a:hover, a:focus {text-decoration: none;}
 	color: #DCE00D;	
 }
 
+h1.page-title {
+	margin: 0px;
+	margin-bottom: 13px;
+	line-height: 46px;
+	text-transform: uppercase;
+	font-size: 20px;
+	border-top: 3px solid #FFF;
+	border-bottom: 3px solid #FFF;
+	padding-left: 10px;
+	letter-spacing: 2px;	
+}
+
 .home-left-col {
 	width: 285px;
 }
@@ -75,33 +87,19 @@ a:hover, a:focus {text-decoration: none;}
 	margin: 0px 10px;
 }
 
-.home-left-col a.search {
-	background: url('../img/search_bg.png') no-repeat center top;
-	margin: auto;
-	display: block;
-	width: 255px;
-	height: 53px;
-	line-height: 53px;
-	font-size: 25px;
-	color: #FFF;
-}
-
-.home-left-col a.search:hover {
-	color: #000;
-}
-
-.home-left-col span {
+.home-left-col span, .destinations-right-col span {
 	display: block;
 	margin-top: 9px;
 	margin-bottom: 24px;
 	font-size: 20px;
 	color: #FFF;
+	letter-spacing: 2px;
 }
 
 .home-right-col {
 	padding: 15px 20px;
 	/*background: url('../img/london.png') no-repeat center top;*/
-	background: url('../img/white60_bg.png');
+	background: url('../img/white70_bg.png');
 	width: 635px;
 	height: 339px;
 	border: 8px #FFF solid;
@@ -123,12 +121,11 @@ a:hover, a:focus {text-decoration: none;}
 }
 
 .home-left-col-1 {
-	width: 580px;
 	padding-right: 83px;
 	border-right: 2px #FFF dashed;
 }
 
-.home-left-col-1 h2 {
+.home-left-col-1 h2, .destinations-left-col-1 h2 {
 	display: inline-block;
 	margin: 0px;
 	margin-right: 4px;
@@ -142,19 +139,19 @@ a:hover, a:focus {text-decoration: none;}
 	letter-spacing: 4px;
 }
 
-.home-left-col-1 .h2-icon {
+.home-left-col-1 .h2-icon, .destinations-left-col-1 .h2-icon {
 	margin-top: -7px;
-	border: 4px rgba(255, 255, 255, 0.4) solid;
+	border: 5px rgba(255, 255, 255, 0.4) solid;
 	width: 77px; 
 	height: 65px;
-	padding: 6px 10px;
+	padding: 5px 9px;
 }
 
 .home-left-col-1 .white-content {
 	position: relative;
 	margin-top: 10px;
 	margin-bottom: 25px;	
-	background: url('../img/white60_bg.png');
+	background: url('../img/white70_bg.png');
 	padding: 30px 65px 30px 45px;
 	width: 495px;
 	height: 230px;
@@ -217,6 +214,69 @@ a:hover, a:focus {text-decoration: none;}
 	background: url('../img/border_bottom.png') left top no-repeat;
 }
 
+.destinations-left-col {
+	width: 635px;
+	height: 250px;
+	border: 8px #FFF solid;
+}
+
+.destinations-left-col img {	
+	width: 100%;
+	height: 100%;	
+}
+
+.destinations-right-col {	
+	margin-left: -8px;
+	width: 353px;
+	height: 250px;
+	border: 8px #FFF solid;
+	background: rgba(48, 85, 137, 0.16);
+}
+
+.destinations-left-col-1 {
+	padding-right: 42px;
+	border-right: 2px #FFF dashed;
+}
+
+.destinations-left-col-1 h2 {
+	width: 504px;
+	margin-bottom: 25px;
+}
+
+.destinations-left-col-1 .destination-item {
+	position: relative;
+	margin-bottom: 12px;
+	width: 589px;
+	height: 124px;
+	background:  url('../img/white70_bg.png');
+	color: #305589;
+	font-size: 15px;
+	line-height: 16px;
+}
+
+.destinations-left-col-1 .destination-item .wrap {
+	width: 397px;
+	padding: 22px 18px 0px;
+}
+
+.destinations-left-col-1 .destination-item .wrap h3 {
+	margin: 0;
+	font-size: 25px;
+	line-height: 35px;
+}
+
+.destinations-left-col-1 .destination-item > img {
+	width: 192px;
+	height: 124px;
+	border: 8px #FFF solid;
+}
+
+.destinations-left-col-1 .destination-item .seemore {
+	position: absolute;
+	top: 43px;
+	right: 172px;
+}
+
 .footer .row-1 {
 	background: #00A59A;
 	height: 105px;
@@ -252,6 +312,27 @@ a:hover, a:focus {text-decoration: none;}
 
 .div-space {
 	height: 72px;
+}
+
+.div-space2 {
+	height: 58px;
+}
+
+a.banner {
+	background: url('../img/banner_bg.png') no-repeat center top;
+	margin: auto;
+	display: block;
+	width: 255px;
+	height: 53px;
+	line-height: 53px;
+	font-size: 25px;
+	color: #FFF;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+}
+
+a.banner:hover {
+	color: #00524D;
 }
 
 .seemore {

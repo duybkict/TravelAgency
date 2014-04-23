@@ -7,7 +7,7 @@ $title_for_layout = 'Bon Voyage | Travel Agency';
 
 	<body>
 
-		<div class="div-header col-xs-12">
+		<div class="div-logo col-xs-12">
 			<div class="container">
 				<div class="logo"></div>
 				<h1>BON VOYAGE</h1>
@@ -37,7 +37,7 @@ $title_for_layout = 'Bon Voyage | Travel Agency';
 						<a href="#"><img src="img/pinterest.png" /></a>
 					</div>
 					<img src="img/binoculars.png" style="margin-bottom: 18px" />
-					<a href="" class="search">S E A R C H</a>
+					<a href="" class="banner">SEARCH</a>
 					<span>For A Holiday</span>
 					<a href="#" class="btn-custom" style="width: 100%">WELCOME TO OUR WORLD</a>
 				</div>
