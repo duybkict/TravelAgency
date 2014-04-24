@@ -175,17 +175,17 @@ h1.page-title {
 	color: #305589;
 }
 
-.home-right-col-1 {
+.home-right-col-1, .vacation-right-col {
 	width: 315px;
 }
 
-.home-right-col-1 h2 {
+.home-right-col-1 h2, .vacation-right-col h2 {
 	margin: 0px;
 	line-height: 74px;
 	font-size: 53px;
 }
 
-.home-right-col-1 .white-content {
+.home-right-col-1 .white-content, .vacation-right-col .white-content {
 	position: relative;
 	margin-top: 10px;
 	margin-bottom: 50px;	
@@ -195,13 +195,13 @@ h1.page-title {
 	height: 85px;
 }
 
-.home-right-col-1 .white-content .seemore {
+.home-right-col-1 .white-content .seemore, .vacation-right-col .white-content .seemore {
 	position: absolute;
 	right: 10px;
 	bottom: 25px;
 }
 
-.home-right-col-1 .white-content p {
+.home-right-col-1 .white-content p, .vacation-right-col .white-content p {
 	font-size: 20px;
 }
 
@@ -224,7 +224,7 @@ h1.page-title {
 	background: rgba(48, 85, 137, 0.16);
 }
 
-.destinations-left-col-1, .aboutus-left-col {
+.destinations-left-col-1, .aboutus-left-col, .vacation-left-col {
 	padding-right: 42px;
 	border-right: 2px #FFF dashed;
 }
@@ -400,32 +400,32 @@ h1.page-title {
 	color: #305589;
 }
 
-.aboutus-left-col {
+.aboutus-left-col, .vacation-left-col {
 	padding-right: 40px;
 }
 
-.aboutus-left-col .white-content {
+.aboutus-left-col .white-content, .vacation-left-col .white-content {
 	width: 595px;
 	background: rgba(255, 255, 255, 0.7);
 	color: #305589;
 }
 
-.aboutus-left-col .white-content > img:first-child {
+.aboutus-left-col .white-content > img:first-child, .vacation-left-col .white-content > img:first-child {
 	width: 100%;
 	border: 8px #FFF solid;
 }
 
-.aboutus-left-col .white-content .wrap {
+.aboutus-left-col .white-content .wrap, .vacation-left-col .white-content .wrap {
 	padding: 20px;
 }
 
-.aboutus-left-col .white-content .wrap h2 {
+.aboutus-left-col .white-content .wrap h2, .vacation-left-col .white-content .wrap h2 {
 	margin: 0px;
 	font-size: 25px;
 	line-height: 35px;
 }
 
-.aboutus-left-col .white-content .wrap p {
+.aboutus-left-col .white-content .wrap p, .vacation-left-col .white-content .wrap p {
 	font-size: 15px;
 	line-height: 16.5px;
 	margin-top: 15px;
@@ -506,6 +506,18 @@ h1.page-title {
 	bottom: 28px;
 	line-height: 28px;
 	font-size: 22px;
+}
+
+.vacation-right-col .intro {
+	padding: 45px 35px;
+	width: 308px;
+	height: 268px;
+	background: #00A59A;
+	vertical-align: central;
+	font-size: 20px;
+	line-height: 26px;
+	margin-bottom: 25px;
+	text-align: center;
 }
 
 .footer .row-1 {

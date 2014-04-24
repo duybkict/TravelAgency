@@ -91,7 +91,7 @@ $active_tab = 'destinations';
 					<p class="p-intro">FIND SUGGESTED HOTELS, DAY TRIPS & ADVENTURE TIPS</p>
 
 					<div class="div-intro">
-						Bon Voyage offers travel information on a wide range of destinations. Learn about your destination today and contact us for a quote.
+						Bon Voyage offers travel information on a wide range of destinations. Learn about your destination today and contact us for more information.
 					</div>
 					
 					<h2>Need Help?</h2>
