@@ -205,15 +205,6 @@ h1.page-title {
 	font-size: 20px;
 }
 
-.home-right-col-1 .border-bottom, .destinations-right-col-1 .border-bottom {
-	position: absolute;
-	bottom: -20px;
-	left: 0px;
-	width: 100%;
-	height: 21px;
-	background: url('../img/border_bottom.png') left top no-repeat;
-}
-
 .destinations-left-col, .vacations-right-col {
 	width: 635px;
 	height: 250px;
@@ -233,7 +224,7 @@ h1.page-title {
 	background: rgba(48, 85, 137, 0.16);
 }
 
-.destinations-left-col-1 {
+.destinations-left-col-1, .aboutus-left-col {
 	padding-right: 42px;
 	border-right: 2px #FFF dashed;
 }
@@ -409,6 +400,114 @@ h1.page-title {
 	color: #305589;
 }
 
+.aboutus-left-col {
+	padding-right: 40px;
+}
+
+.aboutus-left-col .white-content {
+	width: 595px;
+	background: rgba(255, 255, 255, 0.7);
+	color: #305589;
+}
+
+.aboutus-left-col .white-content > img:first-child {
+	width: 100%;
+	border: 8px #FFF solid;
+}
+
+.aboutus-left-col .white-content .wrap {
+	padding: 20px;
+}
+
+.aboutus-left-col .white-content .wrap h2 {
+	margin: 0px;
+	font-size: 25px;
+	line-height: 35px;
+}
+
+.aboutus-left-col .white-content .wrap p {
+	font-size: 15px;
+	line-height: 16.5px;
+	margin-top: 15px;
+}
+
+.aboutus-right-col {
+	width: 308px;
+}
+
+.aboutus-right-col h3 {
+	font-size: 46px;
+	line-height: 42px;
+	margin: 0;
+}
+
+.aboutus-right-col .intro {
+	width: 308px;
+	height: 330px;
+	background: #00A59A;
+	margin-top: 20px;
+}
+
+.aboutus-right-col .intro .star {
+	margin: 30px 6px 20px;
+}
+
+.aboutus-right-col .intro span {
+	display: block;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.aboutus-right-col .intro span.dashed {
+	height: 2px;
+	border-bottom: 2px #FFF dashed;
+	width: 165px;
+	text-align: center;
+	margin: 15px auto;
+}
+
+.aboutus-testimonials h2 {
+	margin: 0px;
+	width: 100%;
+	height: 65px;
+	line-height: 65px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.4);
+	color: #305589;
+	margin-bottom: 25px;
+}
+
+.aboutus-item {
+	position: relative;
+	float: left;
+	width: 310px;
+	min-height: 180px;
+	background: rgba(255, 255, 255, 0.4);
+	padding: 20px;
+	margin-right: 25px;
+}
+
+.aboutus-item.last {
+	margin-right: 0px;
+}
+
+.aboutus-item.last:after {
+	clear: both;
+}
+
+.aboutus-item p {
+	color: #305589;
+	font-size: 20px;
+	line-height: 22px;
+}
+.aboutus-item .author {
+	position: absolute;
+	left: 20px;
+	bottom: 28px;
+	line-height: 28px;
+	font-size: 22px;
+}
+
 .footer .row-1 {
 	background: #00A59A;
 	height: 105px;
@@ -500,4 +599,13 @@ a.banner:hover {
 .btn-custom:hover {
 	background-color: #EA1935;
 	color: #FFF;
+}
+
+.border-bottom {
+	position: absolute;
+	bottom: -20px;
+	left: 0px;
+	width: 100%;
+	height: 21px;
+	background: url('../img/border_bottom.png') left top no-repeat;
 }
