@@ -11,7 +11,7 @@ $active_tab = 'vacations';
 		<?php include './layout/logo.php'; ?>
 
 		<?php include './layout/navigation.php'; ?>
-
+		
 		<div class="div-content col-xs-12">
 			<div class="container">
 
@@ -29,7 +29,7 @@ $active_tab = 'vacations';
 
 				<div class="clearfix"></div>
 
-				<div class="div-space2"></div>
+				<div class="div-space2"><a id="anchor-main" ></a> </div>
 
 				<div class="vacation-item">
 					<img src="img/place_london.jpg" />

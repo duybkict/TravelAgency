@@ -6,6 +6,7 @@ body {
     /*min-height: 1739px;*/
 	font-family: 'Spinnaker', sans-serif;
 	color: #FFF;
+	display:none;
 }
 
 a {transition: color 0.4s ease 0s; color: #FFF;}
@@ -256,7 +257,7 @@ h1.page-title {
 	line-height: 35px;
 }
 
-.destinations-left-col-1 .destination-item > img {
+.destinations-left-col-1 .destination-item img {
 	width: 192px;
 	height: 124px;
 	border: 8px #FFF solid;
@@ -621,3 +622,6 @@ a.banner:hover {
 	height: 21px;
 	background: url('../img/border_bottom.png') left top no-repeat;
 }
+
+a:focus, button:focus {outline: none;}
+button::-moz-focus-inner {border: 0;}

@@ -19,7 +19,7 @@ if (!isset($title_for_layout)) $title_for_layout = 'Boutique';
 
 	<script src="js/jquery.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-	<script type="text/javascript">
+<!--	<script type="text/javascript">
 		$.noConflict();
-	</script>
+	</script>-->
 </head>

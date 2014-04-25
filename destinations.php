@@ -1,6 +1,11 @@
 <?php
+include_once './core/DataContext.php';
+
 $title_for_layout = 'Bon Voyage | Destinations';
 $active_tab = 'destinations';
+$db = new DataContext();
+
+$destinations = $db->getDestinations();
 ?>
 
 <html>
@@ -23,7 +28,7 @@ $active_tab = 'destinations';
 
 				<div class="destinations-right-col text-center pull-right">
 					<img src="img/briefcase.png" style="margin: 38px auto 5px;"/>
-					<a href="#" class="banner">START</a>
+					<a href="vacations.php?anchor=anchor-main" class="banner">START</a>
 					<span>The Adventure</span>
 				</div>
 
@@ -32,58 +37,22 @@ $active_tab = 'destinations';
 				<div class="div-space2"></div>
 
 				<div class="destinations-left-col-1 pull-left">
-					<h2>Handpicked Offers</h2>
-					<img class="h2-icon" src="img/clock.png" />
-
+					<h2>Summer Destinations</h2>
+					<img class="h2-icon" src="img/plane.png" />
+					
+					<?php foreach ($destinations as $d) : 
+					$description = (strlen($d->description) > 133) ? substr($d->description, 0, 130) . '...' : $d->description;?>
 					<div class="destination-item">
 						<div class="wrap pull-left">
-							<h3>Europe</h3>
-							<p>I'm a paragraph. Click here to add your own text & edit me. I’m a great place for you to tell a story & let your users know a little more about you.</p>
+							<h3><?php echo $d->name; ?></h3>
+							<p><?php echo $description; ?></p>
 						</div>
-						<img src="img/europe.jpg" />						
-						<div class="clearfix"></div>
-						<a href="#" class="seemore">&plus;</a>
+						<a href="vacations.php?destination=<?php echo $d->detinationId; ?>&anchor=anchor-main" >
+							<img src="<?php echo $d->image; ?>" />
+						</a>						
+						<a href="vacations.php?destination=<?php echo $d->detinationId; ?>&anchor=anchor-main" class="seemore">&plus;</a>
 					</div>
-
-					<div class="destination-item">
-						<div class="wrap pull-left">
-							<h3>Africa</h3>
-							<p>I'm a paragraph. Click here to add your own text & edit me. I’m a great place for you to tell a story & let your users know a little more about you.</p>
-						</div>
-						<img src="img/africa.jpg" />						
-						<div class="clearfix"></div>
-						<a href="#" class="seemore">&plus;</a>
-					</div>
-
-					<div class="destination-item">
-						<div class="wrap pull-left">
-							<h3>Asia</h3>
-							<p>I'm a paragraph. Click here to add your own text & edit me. I’m a great place for you to tell a story & let your users know a little more about you.</p>
-						</div>
-						<img src="img/asia.jpg" />						
-						<div class="clearfix"></div>
-						<a href="#" class="seemore">&plus;</a>
-					</div>
-
-					<div class="destination-item">
-						<div class="wrap pull-left">
-							<h3>Australia</h3>
-							<p>I'm a paragraph. Click here to add your own text & edit me. I’m a great place for you to tell a story & let your users know a little more about you.</p>
-						</div>
-						<img src="img/australia.jpg" />						
-						<div class="clearfix"></div>
-						<a href="#" class="seemore">&plus;</a>
-					</div>
-
-					<div class="destination-item">
-						<div class="wrap pull-left">
-							<h3>Canada</h3>
-							<p>I'm a paragraph. Click here to add your own text & edit me. I’m a great place for you to tell a story & let your users know a little more about you.</p>
-						</div>
-						<img src="img/canada.jpg" />						
-						<div class="clearfix"></div>
-						<a href="#" class="seemore">&plus;</a>
-					</div>
+					<?php endforeach; ?>
 
 				</div>
 

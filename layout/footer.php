@@ -2,7 +2,14 @@
 	<div class="row-1" >
 		<div class="container">
 			<h2>BOOK YOUR VACATION NOW</h2>
-			<a href="#" class="btn-custom pull-right">GO</a>
+			<?php
+			if (basename($_SERVER['PHP_SELF']) == 'vacations.php') {
+				$go_link = '#anchor-main';
+			} else {
+				$go_link = 'vacations.php?anchor=anchor-main';
+			}
+			?>
+			<a href="<?php echo $go_link; ?>" class="btn-custom pull-right">GO</a>
 		</div>
 	</div>
 
@@ -38,3 +45,24 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	var duration = 600;
+	var root = $('html, body');
+	$('a').click(function() {
+		root.animate({
+			scrollTop: $($.attr(this, 'href')).offset().top
+		}, duration);
+		return false;
+	});
+	
+	$(document).ready(function() {
+		$('body').fadeIn({ duration: duration, queue: false });	
+		<?php if (isset($_GET['anchor'])) : ?>
+			var anchor = '#<?php echo $_GET['anchor']; ?>';
+			root.animate({
+				scrollTop: $(anchor).offset().top
+			}, { duration: duration, queue: false });
+		<?php endif; ?>
+	});
+</script>

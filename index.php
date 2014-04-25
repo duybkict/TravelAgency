@@ -23,19 +23,20 @@ $active_tab = 'home';
 						<a href="#"><img src="img/pinterest.png" /></a>
 					</div>
 					<img src="img/binoculars.png" style="margin-bottom: 18px" />
-					<a href="" class="banner">SEARCH</a>
+					<a href="vacations.php?anchor=anchor-main" class="banner">SEARCH</a>
 					<span>For A Holiday</span>
-					<a href="#" class="btn-custom" style="width: 100%">WELCOME TO OUR WORLD</a>
+					<a href="aboutus.php" class="btn-custom" style="width: 100%">WELCOME TO OUR WORLD</a>
 				</div>
 
 				<div class="home-right-col pull-right">
 					<p>SEE HOW MUCH <br/>YOU CAN SAVE WITH THESE LAST MINUTE BON VOYAGE<br/> RATES.</p>
-					<a href="#" class="pull-right" style="margin-top: 5px;">See Details &nbsp;&nbsp;<span class="seemore">&plus;</span></a>
+					<a href="#anchor-main" class="pull-right" style="margin-top: 5px;">See Details &nbsp;&nbsp;<span class="seemore">&plus;</span></a>
 				</div>
 
 				<div class="clearfix"></div>
 
 				<div class="div-space"></div>
+				<a id="anchor-main" ></a>
 
 				<div class="home-left-col-1 pull-left">
 					<h2>Handpicked Offers</h2>
@@ -56,7 +57,7 @@ $active_tab = 'home';
 						<span class="list-details">
 							NYC Escape <span class="color-white">------------------</span> $899
 						</span>
-						<a href="#" class="link-seemore">
+						<a href="vacations.php" class="link-seemore">
 							See more &nbsp;<span class="seemore">&plus;</span>
 						</a>
 					</div>
@@ -79,7 +80,7 @@ $active_tab = 'home';
 						<span class="list-details">
 							Cape Cod <span class="color-white">--------------------</span> $599
 						</span>
-						<a href="#" class="link-seemore">
+						<a href="destinations.php" class="link-seemore">
 							See more &nbsp;<span class="seemore">&plus;</span>
 						</a>
 					</div>

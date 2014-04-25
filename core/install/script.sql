@@ -5,6 +5,7 @@ USE travel_agency;
 CREATE TABLE destinations (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(256) NOT NULL,
+	image VARCHAR(256),
 	description VARCHAR(1024) NOT NULL,
 	published BIT NOT NULL DEFAULT 1,
 	published_date DATETIME,
@@ -15,6 +16,7 @@ CREATE TABLE destinations (
 CREATE TABLE tours (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(256) NOT NULL,
+	image VARCHAR(256),
 	price float NOT NULL,
 	short_description VARCHAR(512),
 	description TEXT,
@@ -146,8 +148,8 @@ BEGIN
 END;//
 delimiter ;
 
-INSERT INTO destinations(name, description) VALUES ('Europe', 'Europe is an amazing place for a holiday. From the famous Eiffel Tower and Louvre Museum in Paris to the mountain railway of Jungfrau in Switzerland or Amsterdam’s exciting nightlife,  we can take you to all the best bits of Europe in our modern, comfortable coaches.');
-INSERT INTO destinations(name, description) VALUES ('Asia', 'Sum up Asia in a paragraph? Good luck. Positively massive by just about every measure, the sole thread that unites this diverse continent is the sheer diversity of experiences it presents to travellers.');
-INSERT INTO destinations(name, description) VALUES ('Africa', 'On this route you will experience \'The World in one Country\' with very spectacular scenery, big game on safari, African Cultures, Ocean, Mountains and semi-desert. The menu is very varied and spiced by your guide with background information and stories about present and past.');
-INSERT INTO destinations(name, description) VALUES ('Australia', 'Tourists visit places and see things. Travellers journey to places and experience things. At Aussie Farmstay and Bush Adventures we design our tours for travellers, not tourists. We travel in a small group (maximum of 11 passengers) to ensure the experience is a personalised one. As long as two passengers have booked an Aussie Farmstay and Bush Adventures tour, the tour will proceed.');
-INSERT INTO destinations(name, description) VALUES ('South America', 'Colourful, candid and everything in between, South America beats to the rhythm of an infectious, eternal drum. Captured in the chaos of Rio\'s carnival, echoing on Columbia\'s Caribbean beaches and booming along the peaks of the Andes, an effervescent spirit bursts from every facet of life on this remarkable continent.');
+INSERT INTO destinations(name, image, description) VALUES ('Europe', 'img/europe.jpg', 'Europe is an amazing place for a holiday. From the famous Eiffel Tower and Louvre Museum in Paris to the mountain railway of Jungfrau in Switzerland or Amsterdam’s exciting nightlife,  we can take you to all the best bits of Europe in our modern, comfortable coaches.');
+INSERT INTO destinations(name, image, description) VALUES ('Asia', 'img/asia.jpg', 'Sum up Asia in a paragraph? Good luck. Positively massive by just about every measure, the sole thread that unites this diverse continent is the sheer diversity of experiences it presents to travellers.');
+INSERT INTO destinations(name, image, description) VALUES ('Africa', 'img/africa.jpg', 'On this route you will experience \'The World in one Country\' with very spectacular scenery, big game on safari, African Cultures, Ocean, Mountains and semi-desert. The menu is very varied and spiced by your guide with background information and stories about present and past.');
+INSERT INTO destinations(name, image, description) VALUES ('Australia', 'img/australia.jpg', 'Tourists visit places and see things. Travellers journey to places and experience things. At Aussie Farmstay and Bush Adventures we design our tours for travellers, not tourists. We travel in a small group (maximum of 11 passengers) to ensure the experience is a personalised one. As long as two passengers have booked an Aussie Farmstay and Bush Adventures tour, the tour will proceed.');
+INSERT INTO destinations(name, image, description) VALUES ('South America', 'img/south_america.jpg', 'Colourful, candid and everything in between, South America beats to the rhythm of an infectious, eternal drum. Captured in the chaos of Rio\'s carnival, echoing on Columbia\'s Caribbean beaches and booming along the peaks of the Andes, an effervescent spirit bursts from every facet of life on this remarkable continent.');
