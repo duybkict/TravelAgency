@@ -65,7 +65,7 @@ class DataContext {
 
 		$tours = array();
 		$tour = new Tour();
-		$statement->bind_result($tour->id, $tour->name, $tour->shortDescription, $tour->description, $tour->image, $tour->destinationId, $tour->price, $tour->published, $tour->publishedDate, $tour->createdDate, $tour->modifiedDate);
+		$statement->bind_result($tour->id, $tour->name, $tour->details, $tour->thumbnail, $tour->image, $tour->price, $tour->shortDescription, $tour->description, $tour->destinationId, $tour->published, $tour->publishedDate, $tour->createdDate, $tour->modifiedDate);
 		while ($statement->fetch()) {
 			$tours[] = unserialize(serialize($tour));
 		}
@@ -147,7 +147,7 @@ class DataContext {
 		$statement->execute();
 
 		$destination = new Destination();
-		$statement->bind_result($destination->id, $destination->name, $destination->createdDate, $destination->modifiedDate);
+		$statement->bind_result($destination->id, $destination->name, $destination->image, $destination->description, $destination->published, $destination->publishedDate, $destination->createdDate, $destination->modifiedDate);
 		if (!$statement->fetch()) {
 			$destination = null;
 		}

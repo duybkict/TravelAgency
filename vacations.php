@@ -1,6 +1,11 @@
 <?php
+include_once './core/DataContext.php';
+
 $title_for_layout = 'Bon Voyage | Vacations';
 $active_tab = 'vacations';
+
+$db = new DataContext();
+$tours = $db->getTours();
 ?>
 
 <html>
@@ -30,111 +35,22 @@ $active_tab = 'vacations';
 				<div class="clearfix"></div>
 
 				<div class="div-space2"><a id="anchor-main" ></a> </div>
-
-				<div class="vacation-item">
-					<img src="img/place_london.jpg" />
-					<div class="wrap">
-						<h2>$999</h2>
-						<strong>Paris:</strong>
-						<span>7 nights, 4-star hotel, B&B</span>
-						<p>
-							I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. 
-						</p>
-						<a href="#" class="link-seemore">
-							See more &nbsp;<span class="seemore">&plus;</span>
-						</a>
-					</div>					
-				</div>
 				
-				<div class="vacation-item">
-					<img src="img/place_london.jpg" />
-					<div class="wrap">
-						<h2>$999</h2>
-						<strong>Paris:</strong>
-						<span>7 nights, 4-star hotel, B&B</span>
-						<p>
-							I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. 
-						</p>
-						<a href="#" class="link-seemore">
-							See more &nbsp;<span class="seemore">&plus;</span>
-						</a>
-					</div>					
-				</div>
-				
-				<div class="vacation-item">
-					<img src="img/place_london.jpg" />
-					<div class="wrap">
-						<h2>$999</h2>
-						<strong>Paris:</strong>
-						<span>7 nights, 4-star hotel, B&B</span>
-						<p>
-							I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. 
-						</p>
-						<a href="#" class="link-seemore">
-							See more &nbsp;<span class="seemore">&plus;</span>
-						</a>
-					</div>					
-				</div>
-				
-				<div class="vacation-item last">
-					<img src="img/place_london.jpg" />
-					<div class="wrap">
-						<h2>$999</h2>
-						<strong>Paris:</strong>
-						<span>7 nights, 4-star hotel, B&B</span>
-						<p>
-							I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. 
-						</p>
-						<a href="#" class="link-seemore">
-							See more &nbsp;<span class="seemore">&plus;</span>
-						</a>
-					</div>					
-				</div>
-				
-				<div class="vacation-item">
-					<img src="img/place_london.jpg" />
-					<div class="wrap">
-						<h2>$999</h2>
-						<strong>Paris:</strong>
-						<span>7 nights, 4-star hotel, B&B</span>
-						<p>
-							I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. 
-						</p>
-						<a href="#" class="link-seemore">
-							See more &nbsp;<span class="seemore">&plus;</span>
-						</a>
-					</div>					
-				</div>
-				
-				<div class="vacation-item">
-					<img src="img/place_london.jpg" />
-					<div class="wrap">
-						<h2>$999</h2>
-						<strong>Paris:</strong>
-						<span>7 nights, 4-star hotel, B&B</span>
-						<p>
-							I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. 
-						</p>
-						<a href="#" class="link-seemore">
-							See more &nbsp;<span class="seemore">&plus;</span>
-						</a>
-					</div>					
-				</div>
-				
-				<div class="vacation-item">
-					<img src="img/place_london.jpg" />
-					<div class="wrap">
-						<h2>$999</h2>
-						<strong>Paris:</strong>
-						<span>7 nights, 4-star hotel, B&B</span>
-						<p>
-							I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. 
-						</p>
-						<a href="#" class="link-seemore">
-							See more &nbsp;<span class="seemore">&plus;</span>
-						</a>
-					</div>					
-				</div>
+				<?php foreach ($tours as $k => $t) : 
+					$description = (strlen($t->shortDescription) > 203) ? substr($t->shortDescription, 0, 200) . '...' : $t->shortDescription;?>
+					<div class="vacation-item <?php if (($k + 1) % 4 == 0 ) echo 'last';?>">
+						<img src="<?php echo $t->thumbnail; ?>" />
+						<div class="wrap">
+							<h2>$<?php echo $t->price; ?></h2>
+							<strong><?php echo $t->name; ?>:</strong>
+							<span><?php echo $t->details; ?></span>
+							<p><?php echo $description; ?></p>
+							<a href="vacation.php" class="link-seemore">
+								See more &nbsp;<span class="seemore">&plus;</span>
+							</a>
+						</div>					
+					</div>
+				<?php endforeach; ?>
 				
 			</div>
 		</div>

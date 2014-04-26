@@ -362,7 +362,7 @@ h1.page-title {
 
 .vacation-item .wrap {
 	position: relative;
-	height: 305px;
+	height: 295px;
 	padding: 0px 20px 0px 10px;
 }
 
@@ -390,7 +390,7 @@ h1.page-title {
 .vacation-item .wrap p {
 	font-size: 13px;
 	line-height: 13px;
-	margin-top: 22px;
+	margin-top: 16px;
 }
 
 .vacation-item .wrap .link-seemore {
