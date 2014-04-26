@@ -52,6 +52,11 @@ $tours = $db->getTours();
 					</div>
 				<?php endforeach; ?>
 				
+				<ul class="pagination pull-right">
+					<li><a href="#">&laquo; Prev</a></li>
+					<li><a href="#">Next &raquo;</a></li>
+				</ul>
+				
 			</div>
 		</div>
 

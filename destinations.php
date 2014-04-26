@@ -1,11 +1,13 @@
 <?php
 include_once './core/DataContext.php';
+include_once './core/HtmlHelper.php';
 
 $title_for_layout = 'Bon Voyage | Destinations';
 $active_tab = 'destinations';
 
 $db = new DataContext();
-$destinations = $db->getDestinations();
+$options = array('page' => $_GET['page']);
+$destinations = $db->getDestinations($options);
 ?>
 
 <html>
@@ -34,7 +36,7 @@ $destinations = $db->getDestinations();
 
 				<div class="clearfix"></div>
 
-				<div class="div-space2"></div>
+				<div class="div-space2"><a id="anchor-main" ></a></div>
 
 				<div class="destinations-left-col-1 pull-left">
 					<h2>Summer Destinations</h2>
@@ -53,6 +55,8 @@ $destinations = $db->getDestinations();
 						<a href="vacations.php?destination=<?php echo $d->detinationId; ?>&anchor=anchor-main" class="seemore">&plus;</a>
 					</div>
 					<?php endforeach; ?>
+					
+					<?php echo HtmlHelper::getPaginationForDestinations($_GET['page'], array('anchor' => 'anchor-main')); ?>
 
 				</div>
 

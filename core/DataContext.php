@@ -10,6 +10,7 @@ class DataContext {
 	private $password = '';
 	private $database = 'travel_agency';
 	public $defaultLimit = 8;
+	public $defaultDestinationsLimit = 5;
 
 	private function getConnection()
 	{
@@ -95,7 +96,7 @@ class DataContext {
 
 		$defaults = array(
 			/*'page' => null,*/
-			'limit' => $this->defaultLimit,
+			'limit' => $this->defaultDestinationsLimit,
 			'offset' => 0,
 			'search' => '',
 			'published' => 1,
@@ -103,8 +104,8 @@ class DataContext {
 		$options = array_merge($defaults, $options);
 
 		if (isset($options['page'])) {
-			$limit = $this->defaultLimit;
-			$offset = ($options['page'] - 1) * $this->defaultLimit;
+			$limit = $this->defaultDestinationsLimit;
+			$offset = ($options['page'] - 1) * $this->defaultDestinationsLimit;
 		} else {
 			$limit = $options['limit'];
 			$offset = $options['offset'];
@@ -133,6 +134,19 @@ class DataContext {
 		$db->close();
 
 		return $destinations;
+	}
+	
+	public function getCountDestinations($options = array())
+	{
+		unset($options['page']);
+		$options['offset'] = 0;
+		$options['limit'] = PHP_INT_MAX;
+		return count($this->getDestinations($options));
+	}
+
+	public function getPageCountDestinations($options = array())
+	{
+		return (int) ceil($this->getCountDestinations($options) / $this->defaultDestinationsLimit);
 	}
 
 	public function getDestinationById($id)
