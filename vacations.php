@@ -59,7 +59,7 @@ $active_tab = 'vacations';
 							<strong><?php echo $t->name; ?>:</strong>
 							<span><?php echo $t->details; ?></span>
 							<p><?php echo $description; ?></p>
-							<a href="vacation.php" class="link-seemore">
+							<a href="vacation.php?id=<?php echo $t->id; ?>" class="link-seemore">
 								See more &nbsp;<span class="seemore">&plus;</span>
 							</a>
 						</div>					

@@ -1,5 +1,11 @@
 <?php
-$title_for_layout = 'Bon Voyage | London tour';
+include_once './core/DataContext.php';
+
+$db = new DataContext();
+$tour = $db->getTourById($_GET['id']);
+$destination = $db->getDestinationById($tour->destinationId);
+
+$title_for_layout = "Bon Voyage | $tour->name: $tour->details";
 $active_tab = '';
 ?>
 
@@ -19,18 +25,20 @@ $active_tab = '';
 
 				<div class="vacation-left-col pull-left">
 					<div class="white-content">
-						<img src="img/slide2.jpg" />
+						<img src="<?php echo $tour->image; ?>" />
 						<div class="wrap">
-							<h2>London tour</h2>
-							<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-							<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-							<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-							<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-							<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-							<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-							<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-							<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-							<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
+							<h2><?php echo $tour->name; ?></h2>
+							<p class="details"><?php echo $tour->details; ?></p>
+							<strong><?php echo $tour->shortDescription; ?></strong>
+							<div class="div-book">
+								<span class="pull-left">Book now for only <strong>&dollar;<?php echo $tour->price; ?></strong> each person</span>
+								<button class="btn btn-success pull-right">Add to Cart</button>
+								<div class="clearfix"></div>
+							</div>
+							<?php echo $tour->description; ?>
+							<a href="vacations.php?anchor=anchor-main&destination=<?php echo $destination->id; ?>">
+								&ll; Look out for more <?php echo $destination->name; ?> tours
+							</a>
 						</div>
 					</div>
 				</div>

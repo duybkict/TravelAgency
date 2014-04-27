@@ -526,6 +526,45 @@ h1.page-title {
 	font-size: 22px;
 }
 
+.vacation-left-col {
+	min-height: 925px;
+}
+
+.vacation-left-col h2 {
+	font-size: 38px !important;
+	line-height: 48px !important;
+}
+
+.vacation-left-col p.details {
+	margin: 0px !important;
+	margin-bottom: 30px !important;
+	font-size: 24px !important;
+}
+
+.vacation-left-col .div-book {
+	margin: 20px auto;
+	width: 100%;
+	padding: 5px 10px;
+	border: 1px dashed #305589;
+}
+
+.vacation-left-col .div-book span {
+	margin-top: 10px;
+	
+}
+
+.vacation-left-col .div-book strong {
+	font-size: 26px;
+	line-height: 22px;
+}
+
+.vacation-left-col a {
+	color: #305589;
+	font-size: 16px;
+	display: block;
+	margin-top: 45px;
+}
+
 .vacation-right-col .intro {
 	padding: 45px 35px;
 	width: 308px;

@@ -89,6 +89,29 @@ class DataContext {
 	{
 		return (int) ceil($this->getCountTours($options) / $this->defaultLimit);
 	}
+	
+	public function getTourById($id)
+	{
+		$db = $this->getConnection();
+
+		$statement = $db->prepare(
+				"SELECT * FROM `tours` 
+				WHERE `id` = ?
+				LIMIT 1 OFFSET 0");
+		$statement->bind_param('i', $id);
+		$statement->execute();
+
+		$tour = new Tour();
+		$statement->bind_result($tour->id, $tour->name, $tour->details, $tour->thumbnail, $tour->image, $tour->price, $tour->shortDescription, $tour->description, $tour->destinationId, $tour->published, $tour->publishedDate, $tour->createdDate, $tour->modifiedDate);
+		if (!$statement->fetch()) {
+			$tour = null;
+		}
+
+		$statement->close();
+		$db->close();
+
+		return $tour;
+	}
 
 	public function getDestinations($options = array())
 	{
