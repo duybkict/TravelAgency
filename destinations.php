@@ -1,12 +1,12 @@
 <?php
 include_once './core/DataContext.php';
 
-$title_for_layout = 'Bon Voyage | Destinations';
-$active_tab = 'destinations';
-
 $db = new DataContext();
 $options = array('page' => $_GET['page']);
 $destinations = $db->getDestinations($options);
+
+$title_for_layout = 'Bon Voyage | Destinations';
+$active_tab = 'destinations';
 ?>
 
 <html>
