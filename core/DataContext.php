@@ -85,7 +85,7 @@ class DataContext {
 		return count($this->getTours($options));
 	}
 
-	public function getPageCountTours($options = array())
+	public function getCountPageTours($options = array())
 	{
 		return (int) ceil($this->getCountTours($options) / $this->defaultLimit);
 	}
@@ -144,7 +144,7 @@ class DataContext {
 		return count($this->getDestinations($options));
 	}
 
-	public function getPageCountDestinations($options = array())
+	public function getCountPageDestinations($options = array())
 	{
 		return (int) ceil($this->getCountDestinations($options) / $this->defaultDestinationsLimit);
 	}

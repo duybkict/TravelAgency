@@ -1,6 +1,5 @@
 <?php
 include_once './core/DataContext.php';
-include_once './core/HtmlHelper.php';
 
 $title_for_layout = 'Bon Voyage | Destinations';
 $active_tab = 'destinations';
@@ -49,14 +48,14 @@ $destinations = $db->getDestinations($options);
 							<h3><?php echo $d->name; ?></h3>
 							<p><?php echo $description; ?></p>
 						</div>
-						<a href="vacations.php?destination=<?php echo $d->detinationId; ?>&anchor=anchor-main" >
+						<a href="vacations.php?destination=<?php echo $d->id; ?>&anchor=anchor-main" >
 							<img src="<?php echo $d->image; ?>" />
 						</a>						
-						<a href="vacations.php?destination=<?php echo $d->detinationId; ?>&anchor=anchor-main" class="seemore">&plus;</a>
+						<a href="vacations.php?destination=<?php echo $d->id; ?>&anchor=anchor-main" class="seemore">&plus;</a>
 					</div>
 					<?php endforeach; ?>
 					
-					<?php echo HtmlHelper::getPaginationForDestinations($_GET['page'], array('anchor' => 'anchor-main')); ?>
+					<?php echo getPagination($_GET['page'], $db->getCountPageTours($options), array('anchor' => 'anchor-main')); ?>
 
 				</div>
 

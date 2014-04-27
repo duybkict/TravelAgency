@@ -1,11 +1,16 @@
 <?php
 include_once './core/DataContext.php';
 
-$title_for_layout = 'Bon Voyage | Vacations';
-$active_tab = 'vacations';
-
 $db = new DataContext();
-$tours = $db->getTours();
+$options = array('page' => $_GET['page']);
+if (isset($_GET['destination'])) {
+	$options['destination_id'] = $_GET['destination'];
+	$vacation = $db->getDestinationById($_GET['destination']);
+}
+$tours = $db->getTours($options);
+
+$title_for_layout = 'Bon Voyage |  ' . (isset($vacation) ? "$vacation->name Tours" : 'Vacations');
+$active_tab = 'vacations';
 ?>
 
 <html>
@@ -20,7 +25,7 @@ $tours = $db->getTours();
 		<div class="div-content col-xs-12">
 			<div class="container">
 
-				<h1 class="page-title">VACATIONS</h1>
+				<h1 class="page-title">VACATIONS <?php if(isset($vacation)) echo " - $vacation->name TOURS";?></h1>
 
 				<div class="vacations-left-col text-center pull-left">
 					<img src="img/sandals.png" style="margin: 38px auto 15px;"/>
@@ -52,10 +57,9 @@ $tours = $db->getTours();
 					</div>
 				<?php endforeach; ?>
 				
-				<ul class="pagination pull-right">
-					<li><a href="#">&laquo; Prev</a></li>
-					<li><a href="#">Next &raquo;</a></li>
-				</ul>
+				<div class="clearfix"></div>
+				
+				<?php echo getPagination($_GET['page'], $db->getCountPageTours($options), array('anchor' => 'anchor-main')); ?>
 				
 			</div>
 		</div>
