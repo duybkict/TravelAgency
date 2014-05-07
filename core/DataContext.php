@@ -2,6 +2,7 @@
 
 include_once 'Destination.php';
 include_once 'Tour.php';
+include_once 'OrderItem.php';
 
 class DataContext {
 
@@ -28,7 +29,7 @@ class DataContext {
 		$db = $this->getConnection();
 
 		$defaults = array(
-			/*'page' => null,*/
+			/* 'page' => null, */
 			'limit' => $this->defaultLimit,
 			'offset' => 0,
 			'search' => '',
@@ -36,7 +37,7 @@ class DataContext {
 			'destination_id' => '%'
 		);
 		$options = array_merge($defaults, $options);
-				
+
 		if (isset($options['page'])) {
 			$limit = $this->defaultLimit;
 			$offset = ($options['page'] - 1) * $this->defaultLimit;
@@ -89,7 +90,7 @@ class DataContext {
 	{
 		return (int) ceil($this->getCountTours($options) / $this->defaultLimit);
 	}
-	
+
 	public function getTourById($id)
 	{
 		$db = $this->getConnection();
@@ -118,7 +119,7 @@ class DataContext {
 		$db = $this->getConnection();
 
 		$defaults = array(
-			/*'page' => null,*/
+			/* 'page' => null, */
 			'limit' => $this->defaultDestinationsLimit,
 			'offset' => 0,
 			'search' => '',
@@ -158,7 +159,7 @@ class DataContext {
 
 		return $destinations;
 	}
-	
+
 	public function getCountDestinations($options = array())
 	{
 		unset($options['page']);
@@ -187,6 +188,61 @@ class DataContext {
 		$statement->bind_result($destination->id, $destination->name, $destination->image, $destination->description, $destination->published, $destination->publishedDate, $destination->createdDate, $destination->modifiedDate);
 		if (!$statement->fetch()) {
 			$destination = null;
+		}
+
+		$statement->close();
+		$db->close();
+
+		return $destination;
+	}
+
+	public function addToCart($tourId, $quantity = 1)
+	{
+		if (!isset($_SESSION['cart'])) {
+			$_SESSION['cart'] = array();
+		}
+
+		$tour = $this->getTourById($tourId);
+		if ($tour == null) {
+			// TODO: error
+			return;
+		}
+
+		foreach ($_SESSION['cart'] as $i) {
+			if ($i->id == $tourId) {
+				$i->quantity = $quantity;
+				return;
+			}
+		}
+
+		$item = new OrderItem();
+		$item->itemId = $tour->id;
+		$item->price = $tour->price;
+		$item->quantity = $quantity;
+		$_SESSION['cart'][] = $item;
+	}
+
+	public function removeFromCart($tourId)
+	{
+		if (!isset($_SESSION['cart'])) {
+			$_SESSION['cart'] = array();
+		}
+
+		foreach ($_SESSION['cart'] as $k => $i) {
+			if ($i->id == $tourId) {
+				array_splice($_SESSION['cart'], $k);
+			}
+		}
+	}
+
+	public function checkout()
+	{
+		$db = $this->getConnection();
+
+		foreach ($_SESSION['cart'] as $orderItem) {
+			$statement = $db->prepare("INSERT INTO `order_items`(`item_id`, `order_id`, `quantity`, `price`) VALUES (?, ?, ?, ?)");
+			$statement->bind_param('sssd', $orderItem->itemId, $orderItem->orderId, $orderItem->quantity, $orderItem->price);
+			$statement->execute();
 		}
 
 		$statement->close();

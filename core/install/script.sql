@@ -9,8 +9,8 @@ CREATE TABLE destinations (
 	description VARCHAR(1024) NOT NULL,
 	published BIT NOT NULL DEFAULT 1,
 	published_date DATETIME,
-	created_date DATETIME,
-	modified_date DATETIME
+	created DATETIME,
+	modified DATETIME
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE tours (
@@ -25,8 +25,8 @@ CREATE TABLE tours (
 	destination_id INT REFERENCES destinations(id),
 	published BIT NOT NULL DEFAULT 1,
 	published_date DATETIME,
-	created_date DATETIME,
-	modified_date DATETIME
+	created DATETIME,
+	modified DATETIME
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE users (
@@ -34,26 +34,27 @@ CREATE TABLE users (
 	email VARCHAR(128) NOT NULL,
 	password VARCHAR(128) NOT NULL,
 	role VARCHAR(16) NOT NULL DEFAULT 'guest',
-	created_date DATETIME,
-	modified_date DATETIME
+	created DATETIME,
+	modified DATETIME
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE orders (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	user_id INT,
+	email VARCHAR(128) NOT NULL,
 	status INT DEFAULT 1, -- 1: pending, 2: confirmed, 3: canceled
-	created_date DATETIME,
-	modified_date DATETIME
+	created DATETIME,
+	modified DATETIME
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE order_items (
-	item_id INT NOT NULL REFERENCES users(id),
+	tour_id INT NOT NULL REFERENCES tours(id),
 	order_id INT NOT NULL REFERENCES orders(id),
 	quantity INT NOT NULL CHECK (quantity > 0),
 	price float NOT NULL,
 	PRIMARY KEY (item_id, order_id)
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
+/*
 DROP TRIGGER IF EXISTS tgg_insert_destinations;
 delimiter //
 CREATE TRIGGER tgg_insert_destinations 
@@ -149,6 +150,7 @@ BEGIN
 	SET NEW.modified_date = now();
 END;//
 delimiter ;
+*/
 
 INSERT INTO destinations(name, image, description) VALUES ('Europe', 'img/europe.jpg', 'Europe is an amazing place for a holiday. From the famous Eiffel Tower and Louvre Museum in Paris to the mountain railway of Jungfrau in Switzerland or Amsterdam’s exciting nightlife,  we can take you to all the best bits of Europe in our modern, comfortable coaches.');
 INSERT INTO destinations(name, image, description) VALUES ('Asia', 'img/asia.jpg', 'Sum up Asia in a paragraph? Good luck. Positively massive by just about every measure, the sole thread that unites this diverse continent is the sheer diversity of experiences it presents to travellers.');

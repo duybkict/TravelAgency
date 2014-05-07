@@ -5,6 +5,11 @@
 			<li><a href="destinations.php" class="<?php if ($active_tab == 'destinations') echo 'active'; ?>" >Destinations</a></li>
 			<li><a href="vacations.php" class="<?php if ($active_tab == 'vacations') echo 'active'; ?>" >Vacations</a></li>
 			<li><a href="aboutus.php" class="<?php if ($active_tab == 'aboutus') echo 'active'; ?>" >About Us</a></li>
+			<li>
+				<a href="checkout.php" class="<?php if ($active_tab == 'checkout') echo 'active'; ?>" >
+					Checkout (0)
+				</a>
+			</li>
 		</ul>
 	</div>
 </div>
