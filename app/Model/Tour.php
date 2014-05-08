@@ -16,5 +16,19 @@ class Tour extends AppModel {
 		}
 		return true;
 	}
+	
+	public function getRandom($limit = 1) {
+		return $this->find('all', array(
+			'limit' => $limit,
+			'order' => 'rand()'
+		));
+	}
+	
+	public function getNewest($limit = 1) {
+		return $this->find('all', array(
+			'limit' => $limit,
+			'order' => 'Tour.published_date'
+		));
+	}
 
 }

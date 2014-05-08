@@ -153,13 +153,13 @@ h1.page-title {
 	margin-top: 10px;
 	margin-bottom: 25px;	
 	background: rgba(255, 255, 255, 0.7);
-	padding: 30px 65px 30px 45px;
+	padding: 30px 10px 30px 45px;
 	width: 495px;
 	height: 230px;
-	text-align: justify;
 }
 
 .home-left-col-1 .white-content .list-details {	
+	display: block;
 	font-size: 20px;
 	color: #305589;
 }

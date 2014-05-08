@@ -18,7 +18,7 @@
 		<div class="div-space2"><a id="anchor-main" ></a></div>
 
 		<div class="destinations-left-col-1 pull-left">
-			<h2>Summer Destinations</h2>
+			<h2>World Destinations</h2>
 			<?php echo $this->Html->image('plane.png', array('class' => 'h2-icon')); ?>
 			
 			<?php foreach ($destinations as $d) : ?>

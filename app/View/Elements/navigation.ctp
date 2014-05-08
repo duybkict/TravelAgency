@@ -26,9 +26,9 @@ switch ($controller) {
 <div class="div-navigation col-xs-12">
 	<div class="container">
 		<ul>
-			<li><?php echo $this->Html->link('Home', array('controller' => 'pages'), array('class' => $active1)); ?></li>
-			<li><?php echo $this->Html->link('Destinations', array('controller' => 'destinations'), array('class' => $active2)); ?></li>
-			<li><?php echo $this->Html->link('Vacations', array('controller' => 'tours'), array('class' => $active3)); ?></li>
+			<li><?php echo $this->Html->link('Home', '/', array('class' => $active1)); ?></li>
+			<li><?php echo $this->Html->link('Destinations', array('controller' => 'destinations', 'action' => 'index'), array('class' => $active2)); ?></li>
+			<li><?php echo $this->Html->link('Vacations', array('controller' => 'tours', 'action' => 'index'), array('class' => $active3)); ?></li>
 			<li><?php echo $this->Html->link('About Us', '/pages/aboutus', array('class' => $active4)); ?></li>
 			<li>
 				<a href="checkout.php" class="" >

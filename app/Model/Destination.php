@@ -14,4 +14,5 @@ class Destination extends AppModel {
 		}
 		return true;
 	}
+	
 }

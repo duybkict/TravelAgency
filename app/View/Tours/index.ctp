@@ -28,22 +28,22 @@
 
 			<?php // var_dump($tours); ?>
 
-			<?php foreach ($tours as $k => $t) : ?>
+			<?php foreach ($tours as $k => $rt) : ?>
 				<div class="vacation-item <?php if (($k + 1) % 4 == 0) echo 'last'; ?>">
-					<?php echo $this->Html->image($t['Tour']['thumbnail']); ?>
+					<?php echo $this->Html->image($rt['Tour']['thumbnail']); ?>
 					<div class="wrap">
-						<h2>$<?php echo $t['Tour']['price']; ?></h2>
-						<strong><?php echo $t['Tour']['name']; ?>:</strong>
-						<span><?php echo $t['Tour']['details']; ?></span>
-						<p><?php echo $this->Text->truncate($t['Tour']['description'], 200, array('exact' => false)); ?></p>
-						<a href="vacation.php?id=<?php echo $t['Tour']['id']; ?>" class="link-seemore">
+						<h2>$<?php echo $rt['Tour']['price']; ?></h2>
+						<strong><?php echo $rt['Tour']['name']; ?>:</strong>
+						<span><?php echo $rt['Tour']['details']; ?></span>
+						<p><?php echo $this->Text->truncate($rt['Tour']['description'], 200, array('exact' => false)); ?></p>
+						<a href="<?php echo $this->Html->url(array('controller' => 'tours', 'action' => 'view', $rt['Tour']['id']));?>" class="link-seemore">
 							See more &nbsp;<span class="seemore">&plus;</span>
 						</a>
 					</div>					
 				</div>
 			<?php endforeach; ?>
 
-		<div class="clearfix"></div>
+			<div class="clearfix"></div>
 
 			<ul class="pagination pull-right">
 				<?php

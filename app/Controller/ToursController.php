@@ -26,5 +26,21 @@ class ToursController extends AppController {
 
 		$this->set(compact('tours'));
 	}
+	
+	public function view($id)
+	{
+		if (!$id) {
+			throw new NotFoundException(__('Invalid tour'));
+		}
+		
+		$tour = $this->Tour->findById($id);
+		if (!$tour) {
+			throw new NotFoundException(__('Invalid tour'));
+		}
+		
+		$random_tours = $this->Tour->getRandom(3);
+		
+		$this->set(compact('tour', 'random_tours'));
+	}
 
 }

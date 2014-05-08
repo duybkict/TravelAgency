@@ -38,7 +38,17 @@ class PagesController extends AppController {
 	{
 		$title_for_layout = 'Bon Voyage | Travel Agency';
 
-		$this->set(compact('title_for_layout'));
+		$random_tours = $this->Tour->getRandom(3);
+		$newest_tours = $this->Tour->find('all', array(
+			'limit' => 5,
+			'order' => 'Tour.published_date'
+		));
+		$cheapest_tours = $this->Tour->find('all', array(
+			'limit' => 5,
+			'order' => 'Tour.price'
+		));
+		
+		$this->set(compact('title_for_layout', 'random_tours', 'newest_tours', 'cheapest_tours'));
 	}
 
 	public function aboutus()
