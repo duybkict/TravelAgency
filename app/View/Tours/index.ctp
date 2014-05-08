@@ -47,14 +47,13 @@
 
 			<ul class="pagination pull-right">
 				<?php
-
 				echo $this->Paginator->numbers(array(
 					'tag' => 'li',
 					'separator' => '',
 					'currentTag' => 'a'
 				));
-				
-				echo '<li class="counter"><a>'.$this->Paginator->counter('Showing vacations {:start} - {:end} out of {:count} total').'</a></li>';
+
+//				echo '<li class="counter"><a>' . $this->Paginator->counter('Showing vacations {:start} - {:end} out of {:count} total') . '</a></li>';
 				?>
 			</ul>
 

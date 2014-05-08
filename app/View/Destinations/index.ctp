@@ -27,10 +27,10 @@
 						<h3><?php echo $d['Destination']['name']; ?></h3>
 						<p><?php echo $this->Text->truncate($d['Destination']['description'], 130, array('exact' => false)); ?></p>
 					</div>
-					<a href="vacations.php?destination=<?php echo $d['Destination']['id']; ?>&anchor=anchor-main" >
+					<a href="<?php echo $this->Html->url(array('controller' => 'tours', 'anchor' => 'anchor-main', 'destination' =>  $d['Destination']['id'])); ?>" >
 						<?php echo $this->Html->image($d['Destination']['image']); ?>
 					</a>						
-					<a href="vacations.php?destination=<?php echo $d['Destination']['id']; ?>&anchor=anchor-main" class="seemore">&plus;</a>
+					<a href="<?php echo $this->Html->url(array('controller' => 'tours', 'anchor' => 'anchor-main', 'destination' =>  $d['Destination']['id'])); ?>" class="seemore">&plus;</a>
 				</div>
 			<?php endforeach; ?>
 			

@@ -45,7 +45,7 @@
 				<span class="list-details">
 					NYC Escape <span class="color-white">------------------</span> $899
 				</span>
-				<a href="vacations.php" class="link-seemore">
+				<a href="<?php echo $this->Html->url(array('controller' => 'tours')); ?>" class="link-seemore">
 					See more &nbsp;<span class="seemore">&plus;</span>
 				</a>
 			</div>
@@ -68,7 +68,7 @@
 				<span class="list-details">
 					Cape Cod <span class="color-white">--------------------</span> $599
 				</span>
-				<a href="destinations.php" class="link-seemore">
+				<a href="<?php echo $this->Html->url(array('controller' => 'destinations')); ?>" class="link-seemore">
 					See more &nbsp;<span class="seemore">&plus;</span>
 				</a>
 			</div>

@@ -16,6 +16,12 @@ class ToursController extends AppController {
 
 	public function index()
 	{
+		if (isset($this->request->named['destination'])) {
+			$this->Paginator->settings = array(
+				'conditions' => array('destination_id' => $this->request->named['destination']),
+				'limit' => 5
+			);
+		}
 		$tours = $this->Paginator->paginate();
 
 		$this->set(compact('tours'));
