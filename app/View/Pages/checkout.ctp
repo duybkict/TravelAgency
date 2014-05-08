@@ -1,22 +1,21 @@
+<?php
+$ajax = $this->Js->request(
+	array('controller' => 'orders', 'action' => 'getCart'), array('async' => true, 'update' => '#shopping_cart', 'method' => 'POST')
+);
+?>
+
 <div class="div-content col-xs-12">
 	<div class="container">
 
-		<h1 class="page-title" style="margin-bottom: 25px">WHO WE ARE</h1>
+		<h1 class="page-title" style="margin-bottom: 25px">CHECK OUT</h1>
 
-		<div class="checkout-left-col pull-left">
+		<div class="checkout-left-col">
 			<div class="white-content">
 				<div class="wrap">
 					<h2>Shopping Cart</h2>
-					<div id="post">
-					</div>
-					<?php $ajax = $this->Js->request(
-						array( 'controller' => 'orders', 'action' => 'getCart'),
-						array( 'update' => 'post')
-					);
-//					echo $ajax;
-					?>
-					
-					<a href="#" onclick='alert("a");<?php echo $ajax; ?>;return false;'>Click</a>
+					<div id="shopping_cart">
+					</div>					
+					<a href="#" onclick='<?php echo $ajax; ?>;return false;'>Click</a>
 				</div>
 			</div>
 		</div>

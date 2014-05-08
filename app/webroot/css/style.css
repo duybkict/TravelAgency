@@ -426,7 +426,7 @@ h1.page-title {
 	padding-right: 40px;
 }
 
-.aboutus-left-col .white-content, .vacation-left-col .white-content, .checkout-left-col .white-content {
+.aboutus-left-col .white-content, .vacation-left-col .white-content {
 	width: 595px;
 	background: rgba(255, 255, 255, 0.7);
 	color: #305589;
@@ -714,6 +714,16 @@ a.banner:hover {
 	background: rgba(255, 255, 255, 1);
 	border: 1px solid rgba(48, 85, 137, 0.6);
 	color: rgba(48, 85, 137, 1);
+}
+
+.checkout-left-col {
+	width: 100%;
+	background: rgba(255, 255, 255, 0.7);
+	color: #305589;
+}
+
+.checkout-left-col .white-content .wrap h2 {
+	margin-bottom: 20px;
 }
 
 a:focus, button:focus {outline: none;}

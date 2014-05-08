@@ -20,7 +20,8 @@ class OrdersController extends AppController {
 		}
 
 		$this->Session->write("ShoppingCart.$id", array($tour, $quantity));
-		$this->render('shopping_cart');
+		
+		return $this->getCart();
 	}
 
 	public function removeFromCart($id)
@@ -34,16 +35,18 @@ class OrdersController extends AppController {
 		}
 
 		$this->Session->delete("ShoppingCart.$id");
-		$this->render('shopping_cart');
+		
+		return $this->getCart();
 	}
 
 	public function getCart()
 	{
-		if (!$this->request->is('post')) {
-			throw new MethodNotAllowedException();
-		}
+//		if (!$this->request->is('post')) {
+//			throw new MethodNotAllowedException();
+//		}
 
-		$this->render('shopping_cart');
+		$this->set('shopping_cart', $this->Session->read('ShoppingCart'));
+		$this->render('shopping_cart', 'ajax');
 	}
 
 }
