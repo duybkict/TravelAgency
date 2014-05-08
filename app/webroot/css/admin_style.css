@@ -1,0 +1,45 @@
+body {
+	height: 100%;
+	background: url("../img/html_bg.gif") repeat scroll 0% 0% transparent;
+	/*overflow: hidden;*/
+	font-family: Arial, san-serif;
+}
+
+.well {
+	background: white;
+}
+
+.flash {
+	padding: 10px;
+}
+
+.content {
+	min-height: 400px;
+}
+
+.thumbnail-wrap {
+	position: relative;
+	display: inline-block;
+	margin-right: 30px;
+}
+
+.thumbnail-wrap .btn {
+	width: 90px;
+	visibility: hidden;
+}
+
+.thumbnail-wrap:hover .btn {
+	visibility: visible;
+}
+
+.thumbnail-wrap .btn-default {
+	position: absolute;
+	top: 55px;
+	left: 30px;
+}
+
+.thumbnail-wrap .btn-danger {
+	position: absolute;
+	top: 100px;
+	left: 30px;
+}

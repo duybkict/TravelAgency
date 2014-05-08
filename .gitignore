@@ -1,10 +1,34 @@
-#netbeans ignore personal stuff 
-nbproject/private/
+sftp-config.json
+/app/webroot/img/Upload/
+/app/Config/database.php
+/app/Config/core.php
+/app/Config/email.php
+/app/Config/bootstrap.php
+/app/tmp
 
+/stats/Config/database.php
+/stats/Config/core.php
+/stats/Config/email.php
+/stats/Config/bootstrap.php
+/stats/tmp
+.mo
 
-## generic files to ignore
-*~
-*.lock
-*.DS_Store
-*.swp
-*.out
+# User specific & automatically generated files #
+#################################################
+/lib/Cake/Console/Templates/skel/tmp/
+/build
+/dist
+/tags
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+/.idea/
+/nbproject/
+/stats/nbproject/
