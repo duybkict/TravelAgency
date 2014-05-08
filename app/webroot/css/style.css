@@ -225,7 +225,7 @@ h1.page-title {
 	background: rgba(48, 85, 137, 0.16);
 }
 
-.destinations-left-col-1, .aboutus-left-col, .vacation-left-col {
+.destinations-left-col-1, .aboutus-left-col, .vacation-left-col, .checkout-left-col {
 	padding-right: 42px;
 	border-right: 2px #FFF dashed;
 	min-height: 760px;
@@ -418,15 +418,15 @@ h1.page-title {
 	font-size: 20px;
 }
 
-.aboutus-left-col {
+.aboutus-left-col, .checkout-left-col {
 	min-height: 300px;
 }
 
-.aboutus-left-col, .vacation-left-col {
+.aboutus-left-col, .vacation-left-col, .checkout-left-col {
 	padding-right: 40px;
 }
 
-.aboutus-left-col .white-content, .vacation-left-col .white-content {
+.aboutus-left-col .white-content, .vacation-left-col .white-content, .checkout-left-col .white-content {
 	width: 595px;
 	background: rgba(255, 255, 255, 0.7);
 	color: #305589;
@@ -437,23 +437,23 @@ h1.page-title {
 	border: 8px #FFF solid;
 }
 
-.aboutus-left-col .white-content .wrap, .vacation-left-col .white-content .wrap {
+.aboutus-left-col .white-content .wrap, .vacation-left-col .white-content .wrap, .checkout-left-col .white-content .wrap {
 	padding: 20px;
 }
 
-.aboutus-left-col .white-content .wrap h2, .vacation-left-col .white-content .wrap h2 {
+.aboutus-left-col .white-content .wrap h2, .vacation-left-col .white-content .wrap h2, .checkout-left-col .white-content .wrap h2 {
 	margin: 0px;
 	font-size: 25px;
 	line-height: 35px;
 }
 
-.aboutus-left-col .white-content .wrap p, .vacation-left-col .white-content .wrap p {
+.aboutus-left-col .white-content .wrap p, .vacation-left-col .white-content .wrap p, .checkout-left-col .white-content .wrap p {
 	font-size: 15px;
 	line-height: 16.5px;
 	margin-top: 15px;
 }
 
-.aboutus-right-col {
+.aboutus-right-col, .checkout-right-col  {
 	width: 308px;
 }
 
@@ -463,11 +463,15 @@ h1.page-title {
 	margin: 0;
 }
 
-.aboutus-right-col .intro {
+.aboutus-right-col .intro, .checkout-right-col .intro {
 	width: 308px;
 	height: 330px;
 	background: #00A59A;
 	margin-top: 20px;
+}
+
+.checkout-right-col .intro {
+	margin-top: 0px;
 }
 
 .aboutus-right-col .intro .star {
