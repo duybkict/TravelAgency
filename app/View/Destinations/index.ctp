@@ -4,12 +4,12 @@
 		<h1 class="page-title">DESTINATIONS</h1>
 
 		<div class="destinations-left-col pull-left">
-			<img src="img/slide1.jpg" />
+			<?php echo $this->Html->image('slide1.jpg'); ?>
 		</div>
 
 		<div class="destinations-right-col text-center pull-right">
-			<img src="img/briefcase.png" style="margin: 38px auto 5px;"/>
-			<a href="vacations.php?anchor=anchor-main" class="banner">START</a>
+			<?php echo $this->Html->image('briefcase.png', array('style' => 'margin: 38px auto 5px')); ?>
+			<a href="<?php echo $this->Html->url(array('controller' => 'tours', 'anchor' => 'anchor-main')); ?>" class="banner">START</a>
 			<span>The Adventure</span>
 		</div>
 
@@ -19,7 +19,7 @@
 
 		<div class="destinations-left-col-1 pull-left">
 			<h2>Summer Destinations</h2>
-			<img class="h2-icon" src="img/plane.png" />
+			<?php echo $this->Html->image('plane.png', array('class' => 'h2-icon')); ?>
 			
 			<?php foreach ($destinations as $d) : ?>
 				<div class="destination-item">
@@ -28,13 +28,11 @@
 						<p><?php echo $this->Text->truncate($d['Destination']['description'], 130, array('exact' => false)); ?></p>
 					</div>
 					<a href="vacations.php?destination=<?php echo $d['Destination']['id']; ?>&anchor=anchor-main" >
-						<img src="<?php echo $d['Destination']['image']; ?>" />
+						<?php echo $this->Html->image($d['Destination']['image']); ?>
 					</a>						
 					<a href="vacations.php?destination=<?php echo $d['Destination']['id']; ?>&anchor=anchor-main" class="seemore">&plus;</a>
 				</div>
 			<?php endforeach; ?>
-
-<?php // echo getPagination($_GET['page'], $db->getCountPageTours($options), array('anchor' => 'anchor-main')); ?>
 
 		</div>
 
@@ -46,7 +44,7 @@
 			</div>
 
 			<h2>Need Help?</h2>
-			<img class="h2-icon" src="img/help.png" />
+			<?php echo $this->Html->image('help.png', array('class' => 'h2-icon')); ?>
 
 			<div class="white-content">
 				<p>Booking a major trip is exciting, but it can also be a bit overwhelming. </p>

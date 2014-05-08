@@ -5,7 +5,7 @@
 
 		<div class="aboutus-left-col pull-left">
 			<div class="white-content">
-				<?php echo $this->Html->image('/img/slide2.jpg'); ?>
+				<?php echo $this->Html->image('slide2.jpg'); ?>
 				<div class="wrap">
 					<h2>I'm a title. Click to edit me.</h2>
 					<p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>

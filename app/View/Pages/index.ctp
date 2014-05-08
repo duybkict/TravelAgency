@@ -3,15 +3,17 @@
 
 		<div class="home-left-col text-center pull-left">
 			<div class="social-icons">
-				<a href="#"><img src="img/facebook.png" /></a>
-				<a href="#"><img src="img/twitter.png" /></a>
-				<a href="#"><img src="img/googleplus.png" /></a>
-				<a href="#"><img src="img/pinterest.png" /></a>
+				<a href="#"><?php echo $this->Html->image('facebook.png'); ?></a>
+				<a href="#"><?php echo $this->Html->image('twitter.png'); ?></a>
+				<a href="#"><?php echo $this->Html->image('googleplus.png'); ?></a>
+				<a href="#"><?php echo $this->Html->image('pinterest.png'); ?></a>
 			</div>
-			<img src="img/binoculars.png" style="margin-bottom: 18px" />
-			<a href="vacations.php?anchor=anchor-main" class="banner">SEARCH</a>
+			<?php echo $this->Html->image('binoculars.png', array('style' => 'margin-bottom: 18px')); ?>
+			<a href="<?php echo $this->Html->url(array('controller' => 'tours', 'anchor' => 'anchor-main')); ?>" class="banner">SEARCH</a>
 			<span>For A Holiday</span>
-			<a href="aboutus.php" class="btn-custom" style="width: 100%">WELCOME TO OUR WORLD</a>
+			<a href="<?php echo $this->Html->url('/pages/aboutus'); ?>" class="btn-custom" style="width: 100%">
+				WELCOME TO OUR WORLD
+			</a>
 		</div>
 
 		<div class="home-right-col pull-right">
@@ -26,7 +28,7 @@
 
 		<div class="home-left-col-1 pull-left">
 			<h2>Handpicked Offers</h2>
-			<img class="h2-icon" src="img/clock.png" />
+			<?php echo $this->Html->image('clock.png', array('class' => 'h2-icon')); ?>
 			<div class="white-content">
 				<span class="list-details">
 					Romantic Paris <span class="color-white">---------------</span> $449
@@ -49,7 +51,7 @@
 			</div>
 
 			<h2>Summer Destinations</h2>
-			<img class="h2-icon" src="img/plane.png" />
+			<?php echo $this->Html->image('plane.png', array('class' => 'h2-icon')); ?>
 			<div class="white-content" style="margin-bottom: 3px;">
 				<span class="list-details">
 					Barcelona <span class="color-white">-------------------</span> $999​

@@ -3,10 +3,10 @@
 		<div class="container">
 			<h2>BOOK YOUR VACATION NOW</h2>
 			<?php
-			if (basename($_SERVER['PHP_SELF']) == 'vacations.php') {
+			if ($this->request->params['controller'] == 'destinations') {
 				$go_link = '#anchor-main';
 			} else {
-				$go_link = 'vacations.php?anchor=anchor-main';
+				$go_link = $this->Html->url(array('controller' => 'destinations', 'anchor' => 'anchor-main'));
 			}
 			?>
 			<a href="<?php echo $go_link; ?>" class="btn-custom pull-right">GO</a>
