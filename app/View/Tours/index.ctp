@@ -43,22 +43,20 @@
 				</div>
 			<?php endforeach; ?>
 
-			<div class="clearfix"></div>
+		<div class="clearfix"></div>
 
-			<?php
-			echo $this->Paginator->numbers();
+			<ul class="pagination pull-right">
+				<?php
 
-// Shows the next and previous links
-			echo $this->Paginator->prev(
-					'« Previous', null, null, array('class' => 'disabled')
-			);
-			echo $this->Paginator->next(
-					'Next »', null, null, array('class' => 'disabled')
-			);
-
-// prints X of Y, where X is current page and Y is number of pages
-			echo $this->Paginator->counter();
-			?>
+				echo $this->Paginator->numbers(array(
+					'tag' => 'li',
+					'separator' => '',
+					'currentTag' => 'a'
+				));
+				
+				echo '<li class="counter"><a>'.$this->Paginator->counter('Showing vacations {:start} - {:end} out of {:count} total').'</a></li>';
+				?>
+			</ul>
 
 		<?php endif; ?>
 

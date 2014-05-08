@@ -33,6 +33,16 @@
 					<a href="vacations.php?destination=<?php echo $d['Destination']['id']; ?>&anchor=anchor-main" class="seemore">&plus;</a>
 				</div>
 			<?php endforeach; ?>
+			
+			<ul class="pagination pull-right">
+				<?php
+				echo $this->Paginator->numbers(array(
+					'tag' => 'li',
+					'separator' => '',
+					'currentTag' => 'a'
+				));
+				?>
+			</ul>
 
 		</div>
 

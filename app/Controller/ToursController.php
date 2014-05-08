@@ -3,19 +3,11 @@
 App::uses('AppController', 'Controller');
 
 class ToursController extends AppController {
-	
-	public $components = array('Paginator');
 
-    public $paginate = array(
-        'limit' => 8,
-    );
+	public $paginate = array(
+		'limit' => 8,
+	);
 
-	public function beforeFilter()
-	{
-		parent::beforeFilter();
-		$this->Paginator->settings = $this->paginate;		
-	}
-	
 	public function beforeRender()
 	{
 		parent::beforeRender();
@@ -24,7 +16,7 @@ class ToursController extends AppController {
 
 	public function index()
 	{
-		$tours = $this->Paginator->paginate('Tour');
+		$tours = $this->Paginator->paginate();
 
 		$this->set(compact('tours'));
 	}

@@ -691,22 +691,24 @@ a.banner:hover {
 }
 
 .pagination li a, .pagination li.disabled a {
+	min-width: 38px;
+	text-align: center;
 	background: rgba(255, 255, 255, 0.8);
 	color: rgba(48, 85, 137, 0.6);
 	transition: background 0.4s ease 0s, border-color 0.4s ease 0s, color 0.4s ease 0s;
-	border: 1px solid rgba(48, 85, 137, 0.4);
+	border: 1px solid rgba(48, 85, 137, 0.6);
 	font-size: 16px;
 }
 
 .pagination li.disabled a, .pagination li.disabled:hover a {
 	background: rgba(255, 255, 255, 0.8) !important;
 	color: rgba(0, 0, 0, 0.4);
-	border: 1px solid rgba(48, 85, 137, 0.4);
+	border: 1px solid rgba(48, 85, 137, 0.6);
 }
 
-.pagination li a:hover {
+.pagination li a:hover, .pagination li.current a, .pagination li.counter a {
 	background: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(48, 85, 137, 1);
+	border: 1px solid rgba(48, 85, 137, 0.6);
 	color: rgba(48, 85, 137, 1);
 }
 
