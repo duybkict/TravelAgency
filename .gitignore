@@ -1,16 +1,7 @@
 sftp-config.json
-/app/webroot/img/Upload/
 /app/Config/database.php
-/app/Config/core.php
-/app/Config/email.php
-/app/Config/bootstrap.php
 /app/tmp
 
-/stats/Config/database.php
-/stats/Config/core.php
-/stats/Config/email.php
-/stats/Config/bootstrap.php
-/stats/tmp
 .mo
 
 # User specific & automatically generated files #
@@ -30,5 +21,4 @@ Icon?
 ehthumbs.db
 Thumbs.db
 /.idea/
-/nbproject/
-/stats/nbproject/
+/nbproject/private/
