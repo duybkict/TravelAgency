@@ -31,10 +31,10 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	
+
 	public $layout = 'default';
 	public $components = array(
-		'Paginator', 
+		'Paginator',
 		'Session',
 		'Auth' => array(
 			'loginRedirect' => array('controller' => 'pages', 'action' => 'index'),
@@ -45,13 +45,20 @@ class AppController extends Controller {
 				)
 			)
 		),
-	);	
+	);
 
 	public function beforeFilter()
 	{
 		parent::beforeFilter();
 		$this->Paginator->settings = $this->paginate;
 		$this->Auth->allow();
+
+		if ($this->request->params['prefix'] == 'admin') {
+			$this->layout = 'admin_default';
+			if (isset($this->admin_paginate)) {
+				$this->Paginator->settings = $this->admin_paginate;
+			}
+		}
 	}
 
 }

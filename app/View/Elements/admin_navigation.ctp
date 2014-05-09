@@ -7,8 +7,8 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><?php echo $this->Html->link('Content', array('controller' => 'contents')); ?></li>
-				<li><?php echo $this->Html->link('Images', array('controller' => 'images')); ?></li>
+				<li><?php echo $this->Html->link('Destinations', array('controller' => 'destinations', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Tours', array('controller' => 'tours', 'action' => 'index')); ?></li>
 			</ul>
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">

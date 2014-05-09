@@ -54,15 +54,14 @@ CREATE TABLE order_items (
 	PRIMARY KEY (tour_id, order_id)
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-/*
 DROP TRIGGER IF EXISTS tgg_insert_destinations;
 delimiter //
 CREATE TRIGGER tgg_insert_destinations 
 BEFORE INSERT ON destinations
 FOR EACH ROW 
 BEGIN
-	SET NEW.created_date = now();
-	SET NEW.modified_date = now();
+	SET NEW.created = now();
+	SET NEW.modified = now();
 	IF NEW.published = 1 THEN
 		SET NEW.published_date = now();
 	END IF;
@@ -75,7 +74,7 @@ CREATE TRIGGER tgg_update_destinations
 BEFORE UPDATE ON destinations
 FOR EACH ROW 
 BEGIN
-	SET NEW.modified_date = now();
+	SET NEW.modified = now();
 	IF NEW.published != OLD.published AND NEW.published = 1 THEN
 		SET NEW.published_date = now();
 	END IF;
@@ -88,8 +87,8 @@ CREATE TRIGGER tgg_insert_tours
 BEFORE INSERT ON tours
 FOR EACH ROW 
 BEGIN
-	SET NEW.created_date = now();
-	SET NEW.modified_date = now();
+	SET NEW.created = now();
+	SET NEW.modified = now();
 	IF NEW.published = 1 THEN
 		SET NEW.published_date = now();
 	END IF;
@@ -102,7 +101,7 @@ CREATE TRIGGER tgg_update_tours
 BEFORE UPDATE ON tours
 FOR EACH ROW 
 BEGIN
-	SET NEW.modified_date = now();
+	SET NEW.modified = now();
 	IF NEW.published != OLD.published AND NEW.published = 1 THEN
 		SET NEW.published_date = now();
 	END IF;
@@ -115,8 +114,8 @@ CREATE TRIGGER tgg_insert_users
 BEFORE INSERT ON users
 FOR EACH ROW 
 BEGIN
-	SET NEW.created_date = now();
-	SET NEW.modified_date = now();
+	SET NEW.created = now();
+	SET NEW.modified = now();
 END;//
 delimiter ;
 
@@ -126,7 +125,7 @@ CREATE TRIGGER tgg_update_users
 BEFORE UPDATE ON users
 FOR EACH ROW 
 BEGIN
-	SET NEW.modified_date = now();
+	SET NEW.modified = now();
 END;//
 delimiter ;
 
@@ -136,8 +135,8 @@ CREATE TRIGGER tgg_insert_orders
 BEFORE INSERT ON orders
 FOR EACH ROW 
 BEGIN
-	SET NEW.created_date = now();
-	SET NEW.modified_date = now();
+	SET NEW.created = now();
+	SET NEW.modified = now();
 END;//
 delimiter ;
 
@@ -147,10 +146,19 @@ CREATE TRIGGER tgg_update_orders
 BEFORE UPDATE ON orders
 FOR EACH ROW 
 BEGIN
-	SET NEW.modified_date = now();
+	SET NEW.modified = now();
 END;//
 delimiter ;
-*/
+
+-- Disable all triggers
+DROP TRIGGER IF EXISTS tgg_insert_destinations;
+DROP TRIGGER IF EXISTS tgg_update_destinations;
+DROP TRIGGER IF EXISTS tgg_insert_tours;
+DROP TRIGGER IF EXISTS tgg_update_tours;
+DROP TRIGGER IF EXISTS tgg_insert_users;
+DROP TRIGGER IF EXISTS tgg_update_users;
+DROP TRIGGER IF EXISTS tgg_insert_orders;
+DROP TRIGGER IF EXISTS tgg_update_orders;
 
 INSERT INTO destinations(name, image, description) VALUES ('Europe', 'europe.jpg', 'Europe is an amazing place for a holiday. From the famous Eiffel Tower and Louvre Museum in Paris to the mountain railway of Jungfrau in Switzerland or Amsterdam’s exciting nightlife,  we can take you to all the best bits of Europe in our modern, comfortable coaches.');
 INSERT INTO destinations(name, image, description) VALUES ('Asia', 'asia.jpg', 'Sum up Asia in a paragraph? Good luck. Positively massive by just about every measure, the sole thread that unites this diverse continent is the sheer diversity of experiences it presents to travellers.');
