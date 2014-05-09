@@ -752,3 +752,5 @@ a.banner:hover {
 
 a:focus, button:focus {outline: none;}
 button::-moz-focus-inner {border: 0;}
+
+.flash {padding: 10px;}

@@ -1,3 +1,5 @@
+<?php echo $this->Session->flash(); ?>
+
 <?php if (empty($shoppingCart)) : ?>
 Cart is empty. You might want to go <a href="<?php echo $this->Html->url(array('controller' => 'tours', 'action' => 'index', 'anchor' => 'anchor-main'));?>" class="link-back">explore for more adventures.</a>
 <?php else : ?>
@@ -56,5 +58,11 @@ Cart is empty. You might want to go <a href="<?php echo $this->Html->url(array('
 		</tr>
 	</tfoot>
 </table>
+
+<?php
+echo $this->Form->create('Order', array('url' => '/orders/checkout'));
+echo $this->Form->input('email');
+echo $this->Form->submit('Checkout');
+?>
 
 <?php endif;?>

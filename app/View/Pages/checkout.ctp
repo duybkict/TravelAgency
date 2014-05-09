@@ -12,9 +12,11 @@ $ajax_getCart = $this->Js->request(
 		<div class="checkout-left-col">
 			<div class="white-content">
 				<div class="wrap">
+					
 					<h2>Shopping Cart</h2>
 					<div id="shopping_cart">
-					</div>
+					</div>					
+					
 				</div>
 			</div>
 		</div>
