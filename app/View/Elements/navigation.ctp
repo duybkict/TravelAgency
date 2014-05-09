@@ -31,7 +31,7 @@ switch ($controller) {
 			<li><?php echo $this->Html->link('Destinations', array('controller' => 'destinations', 'action' => 'index'), array('class' => $active2)); ?></li>
 			<li><?php echo $this->Html->link('Vacations', array('controller' => 'tours', 'action' => 'index'), array('class' => $active3)); ?></li>
 			<li><?php echo $this->Html->link('About Us', '/pages/aboutus', array('class' => $active4)); ?></li>
-			<li><?php echo $this->Html->link('Checkout (0)', '/pages/checkout', array('class' => $active5)); ?></li>
+			<li><?php echo $this->Html->link('Checkout', '/pages/checkout', array('class' => $active5, 'id' => 'navigation-checkout')); ?></li>
 		</ul>
 	</div>
 </div>

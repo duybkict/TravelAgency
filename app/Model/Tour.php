@@ -5,7 +5,7 @@ App::uses('AppModel', 'Model');
 class Tour extends AppModel {
 
 	public $belongsTo = array('Destination');
-	public $hasMany = array('OrderItem');
+//	public $hasMany = array('OrderItem');
 
 	public function beforeSave($options = array())
 	{

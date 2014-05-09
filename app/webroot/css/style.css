@@ -225,7 +225,7 @@ h1.page-title {
 	background: rgba(48, 85, 137, 0.16);
 }
 
-.destinations-left-col-1, .aboutus-left-col, .vacation-left-col, .checkout-left-col {
+.destinations-left-col-1, .aboutus-left-col, .vacation-left-col {
 	padding-right: 42px;
 	border-right: 2px #FFF dashed;
 	min-height: 760px;
@@ -418,11 +418,11 @@ h1.page-title {
 	font-size: 20px;
 }
 
-.aboutus-left-col, .checkout-left-col {
+.aboutus-left-col {
 	min-height: 300px;
 }
 
-.aboutus-left-col, .vacation-left-col, .checkout-left-col {
+.aboutus-left-col, .vacation-left-col {
 	padding-right: 40px;
 }
 
@@ -550,6 +550,7 @@ h1.page-title {
 }
 
 .vacation-left-col .div-book {
+	position: relative;
 	margin-top: 20px;
 	width: 100%;
 	padding: 5px 10px;
@@ -564,6 +565,13 @@ h1.page-title {
 .vacation-left-col .div-book strong {
 	font-size: 26px;
 	line-height: 22px;
+}
+
+.vacation-left-col .div-book a.btn {
+	position: absolute;
+	bottom: 3px;
+	right: 5px;
+	color: white;
 }
 
 .vacation-left-col a {
@@ -717,6 +725,9 @@ a.banner:hover {
 }
 
 .checkout-left-col {
+	min-height: 300px;
+	padding-right: 40px;
+	position: relative;
 	width: 100%;
 	background: rgba(255, 255, 255, 0.7);
 	color: #305589;
@@ -724,6 +735,19 @@ a.banner:hover {
 
 .checkout-left-col .white-content .wrap h2 {
 	margin-bottom: 20px;
+}
+
+#shopping_cart a.link-back {
+	color: #305589;
+	text-decoration: underline;
+}
+
+#shopping_cart a.link-back:hover {
+	text-decoration: none;
+}
+
+#shopping_cart strong {
+	font-size: 18px;
 }
 
 a:focus, button:focus {outline: none;}

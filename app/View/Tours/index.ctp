@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="vacations-right-col text-center pull-right">
-			<?php echo $this->Html->image('slide1.jpg'); ?>		
+			<?php echo $this->Html->image('slide3.jpg'); ?>		
 		</div>
 
 		<div class="clearfix"></div>

@@ -1,96 +1,60 @@
+<?php if (empty($shoppingCart)) : ?>
+Cart is empty. You might want to go <a href="<?php echo $this->Html->url(array('controller' => 'tours', 'action' => 'index', 'anchor' => 'anchor-main'));?>" class="link-back">explore for more adventures.</a>
+<?php else : ?>
+
 <table class="table table-condensed table-cart">
 	<thead>
 		<tr>
-			<th>Tour</th>
+			<th>Tours</th>
 			<th>Price</th>
-			<th>Number</th>
-			<th>Subtotal</th>
-			<th></th>
+			<th>Quantity</th>
+			<th width="1%">Subtotal</th>
+			<th width="1%"></th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>Tempura - Eel rice - Japanese tofu with seaweed</td>
-			<td>&dollar;100.0</td>
-			<td>
-				<form id="form-update-10" action="ShoppingCart" method="post">
-					<input type="hidden" name="itemid" value="10" />
-					<input type="hidden" name="action" value="update" />
-					<input type="hidden" id="input-itemnum-10" name="itemnum" value="1" />
-					<select id="select-itemnum-10">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
+		
+		<?php $total = 0;foreach ($shoppingCart as $i) : ?>
+			<tr>
+				<td><?php echo $i[0]['Tour']['name'] . ': ' . $i[0]['Tour']['details']; ?></td>
+				<td>&dollar;<?php echo $i[0]['Tour']['price']; ?></td>
+				<td>
+					<select>
+						<?php
+						for ($j = 1; $j <= 20; $j++) {
+							$ajax_addToCart = $this->Js->request(
+								array('controller' => 'orders', 'action' => 'addToCart', $i[0]['Tour']['id'], $j), array('async' => true, 'update' => '#shopping_cart', 'method' => 'POST')
+							);
+							$selected = ($j == $i[1]) ? 'selected=selected' : '';
+							echo "<option value=$j $selected onclick='$ajax_addToCart'>$j</option>";
+						}
+						?>
 					</select>
-				</form>
-				<script type="text/javascript">
-					var selectBox = '#select-itemnum-10';
-
-					jQuery(selectBox).val(1);
-					jQuery(selectBox).change(function() {
-						jQuery('#input-itemnum-10').val(jQuery(this).val());
-						jQuery('#form-update-10').submit();
-					});
-				</script>
-			</td>
-			<td>&dollar;100.0</td>
-			<td>
-				<form id="form-delete-10" action="ShoppingCart" method="post">
-					<input type="hidden" name="item-price-10" value="100.0" />
-					<input type="hidden" name="itemid" value="10" />
-					<input type="hidden" name="action" value="delete" />
-					<a href="#" onclick="" class="btn btn-danger btn-sm" >Remove</a>
-				</form>
-			</td>
-		</tr>
-		<tr>
-			<td>Tempura - Eel rice - Japanese tofu with seaweed</td>
-			<td>&dollar;100.0</td>
-			<td>
-				<form id="form-update-10" action="ShoppingCart" method="post">
-					<input type="hidden" name="itemid" value="10" />
-					<input type="hidden" name="action" value="update" />
-					<input type="hidden" id="input-itemnum-10" name="itemnum" value="1" />
-					<select id="select-itemnum-10">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-					</select>
-				</form>
-				<script type="text/javascript">
-					var selectBox = '#select-itemnum-10';
-
-					jQuery(selectBox).val(1);
-					jQuery(selectBox).change(function() {
-						jQuery('#input-itemnum-10').val(jQuery(this).val());
-						jQuery('#form-update-10').submit();
-					});
-				</script>
-			</td>
-			<td>&dollar;100.0</td>
-			<td>
-				<form id="form-delete-10" action="ShoppingCart" method="post">
-					<input type="hidden" name="item-price-10" value="100.0" />
-					<input type="hidden" name="itemid" value="10" />
-					<input type="hidden" name="action" value="delete" />
-					<a href="#" onclick="" class="btn btn-danger btn-sm" >Remove</a>
-				</form>
-			</td>
-		</tr>
-
+				</td>
+				<?php $subtotal = $i[0]['Tour']['price'] * $i[1]; $total += $subtotal;?>
+				<td class="text-right">&dollar;<?php echo $subtotal?></td>
+				<td>
+					<?php
+					$ajax_removeFromCart = $this->Js->request(
+						array('controller' => 'orders', 'action' => 'removeFromCart', $i[0]['Tour']['id']), array('async' => true, 'update' => '#shopping_cart', 'method' => 'POST')
+					);
+					?>
+					<a href="#" onclick='if (confirm("Are you sure?"))
+					<?php echo $ajax_removeFromCart; ?>;return false;' class="btn btn-danger btn-sm" >Remove</a>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+			
 	</tbody>
+	<tfoot>
+		<tr>
+			<th><strong>Total</strong></th>
+			<th></th>
+			<th></th>
+			<th class="text-right"><strong>&dollar;<?php echo $total; ?></strong></th>
+			<th></th>
+		</tr>
+	</tfoot>
 </table>
+
+<?php endif;?>

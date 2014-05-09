@@ -1,3 +1,9 @@
+<?php
+$ajax_addToCart = $this->Js->request(
+	array('controller' => 'orders', 'action' => 'addToCart', $tour['Tour']['id']), array('async' => true, 'method' => 'POST')
+);
+?>
+
 <div class="div-content col-xs-12">
 	<div class="container">
 
@@ -12,11 +18,13 @@
 					<strong><?php echo $tour['Tour']['short_description']; ?></strong>
 					<div class="div-book">
 						<span class="pull-left">Book now for only <strong>&dollar;<?php echo $tour['Tour']['price']; ?></strong> each person</span>
-						<button class="btn btn-success pull-right">Add to Cart</button>
+						<a class="btn btn-success" href="<?php echo $this->Html->url('/pages/checkout');?>" onclick='<?php echo $ajax_addToCart; ?>'>
+							Add to Cart
+						</a>
 						<div class="clearfix"></div>
 					</div>
 					<?php echo $tour['Tour']['description']; ?>
-					<a href="<?php echo $this->Html->url(array('controller' => 'tours', 'anchor' => 'anchor-main', 'destination' => $tour['Destination']['id'])); ?>">
+					<a href="<?php echo $this->Html->url(array('controller' => 'tours', 'action' => 'index', 'anchor' => 'anchor-main', 'destination' => $tour['Destination']['id'])); ?>">
 						&ll; Look out for more <?php echo $tour['Destination']['name']; ?> tours
 					</a>
 				</div>
