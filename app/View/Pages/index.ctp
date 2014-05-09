@@ -48,14 +48,14 @@
 			<?php echo $this->Html->image('plane.png', array('class' => 'h2-icon')); ?>
 			<div class="white-content" style="margin-bottom: 3px;">
 				<?php foreach ($cheapest_tours as $ct) : 
-					$padlen = 28- strlen($ct['Tour']['name']);?>
+					$padlen = 28 - strlen($ct['Tour']['name']);?>
 					<span class="list-details">
 						<?php echo $ct['Tour']['name']; ?>
 						<span class="color-white"><?php echo str_pad('', $padlen, '-')?></span>
 						&dollar;<?php echo $ct['Tour']['price']; ?>
 					</span>
 				<?php endforeach; ?>
-				<a href="<?php echo $this->Html->url(array('controller' => 'destinations')); ?>" class="link-seemore">
+				<a href="<?php echo $this->Html->url(array('controller' => 'tours')); ?>" class="link-seemore">
 					See more &nbsp;<span class="seemore">&plus;</span>
 				</a>
 			</div>
