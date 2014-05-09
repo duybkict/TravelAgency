@@ -22,6 +22,18 @@ class PagesController extends AppController {
 		if (!empty($path[1])) {
 			$subpage = $path[1];
 		}
+		
+		switch ($page) {
+			case 'aboutus':				
+				$title_for_layout = 'Bon Voyage | About Us';
+				break;
+			case 'checkout':
+				$title_for_layout = 'Bon Voyage | Checkout';
+				break;
+			default:
+				$title_for_layout = 'Bon Voyage | Travel Agency';
+				break;
+		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 
 		switch ($page) {
@@ -37,7 +49,7 @@ class PagesController extends AppController {
 	public function index()
 	{
 		$title_for_layout = 'Bon Voyage | Travel Agency';
-
+		
 		$random_tours = $this->Tour->getRandom(3);
 		$newest_tours = $this->Tour->find('all', array(
 			'limit' => 5,

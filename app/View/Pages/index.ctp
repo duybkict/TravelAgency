@@ -3,10 +3,10 @@
 
 		<div class="home-left-col text-center pull-left">
 			<div class="social-icons">
-				<a href="#"><?php echo $this->Html->image('facebook.png'); ?></a>
-				<a href="#"><?php echo $this->Html->image('twitter.png'); ?></a>
-				<a href="#"><?php echo $this->Html->image('googleplus.png'); ?></a>
-				<a href="#"><?php echo $this->Html->image('pinterest.png'); ?></a>
+				<a href="http://www.facebook.com" target="_blank"><?php echo $this->Html->image('facebook.png'); ?></a>
+				<a href="http://www.twitter.com" target="_blank"><?php echo $this->Html->image('twitter.png'); ?></a>
+				<a href="http://plus.google.com" target="_blank"><?php echo $this->Html->image('googleplus.png'); ?></a>
+				<a href="http://www.pinterest.com" target="_blank"><?php echo $this->Html->image('pinterest.png'); ?></a>
 			</div>
 			<?php echo $this->Html->image('binoculars.png', array('style' => 'margin-bottom: 18px')); ?>
 			<a href="<?php echo $this->Html->url(array('controller' => 'tours', 'anchor' => 'anchor-main')); ?>" class="banner">SEARCH</a>
