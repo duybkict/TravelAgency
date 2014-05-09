@@ -21,7 +21,7 @@ class DestinationsController extends AppController {
 	}
 	
 	public function admin_index()
-	{		
+	{
 		$destinations = $this->Paginator->paginate();
 
 		$this->set(compact('destinations'));

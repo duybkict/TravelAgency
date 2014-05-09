@@ -4,9 +4,8 @@ App::uses('AppController', 'Controller');
 
 class ToursController extends AppController {
 
-	public $paginate = array(
-		'limit' => 8,
-	);
+	public $paginate = array('limit' => 8);
+	public $admin_paginate = array('limit' => 10);
 
 	public function beforeRender()
 	{
@@ -26,21 +25,28 @@ class ToursController extends AppController {
 
 		$this->set(compact('tours'));
 	}
-	
+
 	public function view($id)
 	{
 		if (!$id) {
 			throw new NotFoundException(__('Invalid tour'));
 		}
-		
+
 		$tour = $this->Tour->findById($id);
 		if (!$tour) {
 			throw new NotFoundException(__('Invalid tour'));
 		}
-		
+
 		$random_tours = $this->Tour->getRandom(3);
-		
+
 		$this->set(compact('tour', 'random_tours'));
+	}
+
+	public function admin_index()
+	{
+		$tours = $this->Paginator->paginate();
+
+		$this->set(compact('tours'));
 	}
 
 }
