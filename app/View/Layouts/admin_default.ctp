@@ -2,23 +2,22 @@
 <html>
 	<head>
 		<?php echo $this->Html->charset(); ?>
-		<title>
-			<?php echo $title_for_layout; ?>
-		</title>
+		<title><?php echo $title_for_layout; ?></title>
+
 		<?php
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('bootstrap.min');
-		echo $this->Html->css('blueimp-gallery.min');
-		echo $this->Html->css('font_arial_narrow');
+		echo $this->Html->css('bootstrap-glyphicon.min');
+		echo $this->Html->css('font-cookie');
+		echo $this->Html->css('font-kreon');
+		echo $this->Html->css('font-lobster');
+		echo $this->Html->css('font-myriadpro');
+		echo $this->Html->css('font-spinnaker');
 		echo $this->Html->css('admin_style');
 
-		echo $this->Html->script('jquery.min');		
+		echo $this->Html->script('jquery.min');
 		echo $this->Html->script('bootstrap.min');
-		echo $this->Html->script('bootstrap.file-input.min');
-		echo $this->Html->script('blueimp-gallery.min');
-		echo $this->Html->script('jquery.blueimp-gallery.min');
-		echo $this->Html->script('/TinyMCE/js/tiny_mce/tiny_mce.js', array('inline' => false));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -26,13 +25,18 @@
 		?>
 	</head>
 	<body>
-		<?php echo $this->element('nav'); ?>
+		<?php 
+		if ($this->request->controller != 'users' && $this->request->action != 'admin_login')
+			echo $this->element('admin_navigation'); 
+		
+		?>
 
 		<div class="container">
 			<div class="row">
 				<?php echo $this->fetch('content'); ?>								
 			</div>
 		</div>
+		
 		<?php
 		if (Configure::read('debug') == 2) {
 			echo $this->element('sql_dump');

@@ -16,7 +16,7 @@
 				<div class="form-group">
 					<label class="col-xs-3 control-label">Email</label>
 					<div class="col-xs-9">
-						<?php echo $this->Form->input('User.username', array('class' => 'form-control')); ?>
+						<?php echo $this->Form->input('User.email', array('class' => 'form-control')); ?>
 					</div>
 				</div>
 				<div class="form-group">

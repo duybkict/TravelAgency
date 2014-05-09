@@ -32,13 +32,26 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
-	public $components = array('Paginator', 'Session');
 	public $layout = 'default';
+	public $components = array(
+		'Paginator', 
+		'Session',
+		'Auth' => array(
+			'loginRedirect' => array('controller' => 'pages', 'action' => 'index'),
+			'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+			'authenticate' => array(
+				'Form' => array(
+					'fields' => array('username' => 'email')
+				)
+			)
+		),
+	);	
 
 	public function beforeFilter()
 	{
 		parent::beforeFilter();
 		$this->Paginator->settings = $this->paginate;
+		$this->Auth->allow();
 	}
 
 }

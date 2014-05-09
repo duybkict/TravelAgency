@@ -5,8 +5,14 @@ App::uses('AppController', 'Controller');
 class PagesController extends AppController {
 
 	public $uses = array('Tour', 'Destination');
+	
+	public function beforeFilter()
+	{
+		parent::beforeFilter();
+		$this->Auth->deny('admin_index');
+	}
 
-	function display()
+	public function display()
 	{
 		$path = func_get_args();
 
