@@ -48,5 +48,17 @@ class ToursController extends AppController {
 
 		$this->set(compact('tours'));
 	}
+	
+	public function admin_delete($id)
+	{
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+
+		if ($this->Tour->delete($id)) {
+			$this->Session->setFlash(__('The tour with id: %s has been deleted.', h($id)), 'flash_success');
+			return $this->redirect(array('action' => 'index'));
+		}
+	}
 
 }

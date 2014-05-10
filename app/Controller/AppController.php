@@ -53,7 +53,7 @@ class AppController extends Controller {
 		$this->Paginator->settings = $this->paginate;
 		$this->Auth->allow();
 
-		if ($this->request->params['prefix'] == 'admin') {
+		if (isset($this->request->params['prefix']) && $this->request->params['prefix'] == 'admin') {
 			$this->layout = 'admin_default';
 			if (isset($this->admin_paginate)) {
 				$this->Paginator->settings = $this->admin_paginate;

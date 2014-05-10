@@ -19,12 +19,24 @@ class DestinationsController extends AppController {
 
 		$this->set(compact('destinations'));
 	}
-	
+
 	public function admin_index()
 	{
 		$destinations = $this->Paginator->paginate();
 
 		$this->set(compact('destinations'));
+	}
+
+	public function admin_delete($id)
+	{
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
+
+		if ($this->Destination->delete($id)) {
+			$this->Session->setFlash(__('The post with id: %s has been deleted.', h($id)), 'flash_success');
+			return $this->redirect(array('action' => 'index'));
+		}
 	}
 
 }

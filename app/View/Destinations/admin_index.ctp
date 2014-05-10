@@ -1,6 +1,8 @@
-<?php // var_dump($destinations);    ?>
+<?php // var_dump($destinations);     ?>
 <div class="col-xs-12 well content">
 	<h1>Destinations Management</h1>
+	
+	<?php echo $this->Session->flash(); ?>
 
 	<table class="table table-striped">
 		<thead>
@@ -11,6 +13,7 @@
 				<td>Description</td>
 				<td>Published</td>
 				<td>Published Date</td>
+				<td></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,6 +29,16 @@
 						?>
 					</td>
 					<td><?php echo $d['Destination']['published_date']; ?></td>
+					<td>
+						<?php
+						echo $this->Form->postLink(
+							'Delete',
+							array('action' => 'delete', $d['Destination']['id']),
+							array('class' => 'btn btn-danger btn-sm'),
+							'Are you sure?'
+						);
+						?>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
@@ -35,7 +48,7 @@
 	<ul class="pagination pull-right">
 		<?php
 		echo '<li class="counter disabled"><a>' . $this->Paginator->counter('Showing records {:start} - {:end} out of {:count} total') . '</a></li>';
-		
+
 		echo $this->Paginator->first(
 			'<< First', array('tag' => 'li'), null, array('tag' => 'li', 'disabledTag' => 'span', 'class' => 'disabled')
 		);

@@ -1,6 +1,8 @@
 <?php // var_dump($destinations);      ?>
 <div class="col-xs-12 well content">
 	<h1>Tours Management</h1>
+	
+	<?php echo $this->Session->flash(); ?>
 
 	<table class="table table-striped">
 		<thead>
@@ -13,6 +15,7 @@
 				<td>Destination</td>
 				<td>Published</td>
 				<td>Published Date</td>
+				<td></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,13 +29,23 @@
 					</td>					
 					<td width="25%"><?php echo $t['Tour']['short_description']; ?></td>
 					<td width="1%">&dollar;<?php echo $t['Tour']['price']; ?></td>
-					<td>&dollar;<?php echo $t['Destination']['name']; ?></td>
+					<td><?php echo $t['Destination']['name']; ?></td>
 					<td width="1%" class="text-center">
 						<?php
 						echo ($t['Tour']['published'] == 1) ? '<span class="glyphicon glyphicon-ok text-success"></span>' : '<span class="glyphicon glyphicon-remove text-danger"></span>';
 						?>
 					</td>
 					<td><?php echo $t['Tour']['published_date']; ?></td>
+					<td>
+						<?php
+						echo $this->Form->postLink(
+							'Delete',
+							array('action' => 'delete', $t['Tour']['id']),
+							array('class' => 'btn btn-danger btn-sm'),
+							'Are you sure?'
+						);
+						?>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
