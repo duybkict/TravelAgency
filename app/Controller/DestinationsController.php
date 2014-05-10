@@ -6,6 +6,7 @@ class DestinationsController extends AppController {
 
 	public $paginate = array('limit' => 5);
 	public $admin_paginate = array('limit' => 10);
+	public $helpers = array('TinyMCE.TinyMCE');
 
 	public function beforeRender()
 	{
@@ -27,9 +28,34 @@ class DestinationsController extends AppController {
 		$this->set(compact('destinations'));
 	}
 
+	public function admin_edit($id = null)
+	{
+		if (!$id) {
+			throw new NotFoundException(__('Invalid record'));
+		}
+
+		$destination = $this->Destination->findById($id);
+		if (!$destination) {
+			throw new NotFoundException(__('Invalid record'));
+		}
+
+		if ($this->request->is(array('post', 'put'))) {
+			$this->Destination->id = $id;
+			if ($this->Destination->save($this->request->data)) {
+				$this->Session->setFlash(__('Update successfully.'), 'flash_success');
+				return $this->redirect(array('action' => 'index'));
+			}
+			$this->Session->setFlash(__('Update failed.'));
+		}
+		
+		if (!$this->request->data) {
+			$this->request->data = $destination;
+		}
+	}
+
 	public function admin_delete($id)
 	{
-		if (!$this->request->is('post')) {
+		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
 

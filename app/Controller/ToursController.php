@@ -6,6 +6,7 @@ class ToursController extends AppController {
 
 	public $paginate = array('limit' => 8);
 	public $admin_paginate = array('limit' => 10);
+	public $helpers = array('TinyMCE.TinyMCE');
 
 	public function beforeRender()
 	{
@@ -47,6 +48,31 @@ class ToursController extends AppController {
 		$tours = $this->Paginator->paginate();
 
 		$this->set(compact('tours'));
+	}
+	
+	public function admin_edit($id = null)
+	{
+		if (!$id) {
+			throw new NotFoundException(__('Invalid record'));
+		}
+
+		$tour = $this->Tour->findById($id);
+		if (!$tour) {
+			throw new NotFoundException(__('Invalid record'));
+		}
+
+		if ($this->request->is(array('post', 'put'))) {
+			$this->Tour->id = $id;
+			if ($this->Tour->save($this->request->data)) {
+				$this->Session->setFlash(__('Update successfully.'), 'flash_success');
+				return $this->redirect(array('action' => 'index'));
+			}
+			$this->Session->setFlash(__('Update failed.'));
+		}
+		
+		if (!$this->request->data) {
+			$this->request->data = $tour;
+		}
 	}
 	
 	public function admin_delete($id)

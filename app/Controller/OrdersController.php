@@ -8,7 +8,7 @@ class OrdersController extends AppController {
 
 	public function addToCart($id, $quantity = null)
 	{
-		if (!$this->request->is('post')) {
+		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
 
@@ -35,7 +35,7 @@ class OrdersController extends AppController {
 
 	public function removeFromCart($id)
 	{
-		if (!$this->request->is('post')) {
+		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
 
@@ -50,7 +50,7 @@ class OrdersController extends AppController {
 
 	public function getCart()
 	{
-		if (!$this->request->is('post')) {
+		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
 
@@ -60,7 +60,7 @@ class OrdersController extends AppController {
 
 	public function checkout()
 	{
-		if (!$this->request->is('post')) {
+		if ($this->request->is('get')) {
 			throw new MethodNotAllowedException();
 		}
 

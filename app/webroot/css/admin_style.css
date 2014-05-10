@@ -43,3 +43,7 @@ body {
 	top: 100px;
 	left: 30px;
 }
+
+table.table.table-striped img {
+	width: 100px;
+}

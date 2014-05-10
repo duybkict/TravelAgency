@@ -1,7 +1,7 @@
-<?php // var_dump($destinations);     ?>
+<?php // var_dump($destinations);       ?>
 <div class="col-xs-12 well content">
 	<h1>Destinations Management</h1>
-	
+
 	<?php echo $this->Session->flash(); ?>
 
 	<table class="table table-striped">
@@ -22,20 +22,21 @@
 					<td><?php echo $d['Destination']['id']; ?></td>
 					<td><?php echo $this->Html->image($d['Destination']['image']); ?></td>
 					<td><?php echo $d['Destination']['name']; ?></td>					
-					<td width="40%"><?php echo $d['Destination']['description']; ?></td>
+					<td width="30%"><?php echo $d['Destination']['description']; ?></td>
 					<td width="1%" class="text-center">
 						<?php
 						echo ($d['Destination']['published'] == 1) ? '<span class="glyphicon glyphicon-ok text-success"></span>' : '<span class="glyphicon glyphicon-remove text-danger"></span>';
 						?>
 					</td>
 					<td><?php echo $d['Destination']['published_date']; ?></td>
-					<td>
+					<td width="125px;">
 						<?php
+						echo $this->Html->link(
+							'Edit', array('action' => 'edit', $d['Destination']['id']), array('class' => 'btn btn-primary btn-sm')
+						);
+						echo ' ';
 						echo $this->Form->postLink(
-							'Delete',
-							array('action' => 'delete', $d['Destination']['id']),
-							array('class' => 'btn btn-danger btn-sm'),
-							'Are you sure?'
+							'Delete', array('action' => 'delete', $d['Destination']['id']), array('class' => 'btn btn-danger btn-sm'), 'Are you sure?'
 						);
 						?>
 					</td>

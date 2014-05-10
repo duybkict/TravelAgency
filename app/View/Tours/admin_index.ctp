@@ -36,8 +36,12 @@
 						?>
 					</td>
 					<td><?php echo $t['Tour']['published_date']; ?></td>
-					<td>
+					<td width="125px;">
 						<?php
+						echo $this->Html->link(
+							'Edit', array('action' => 'edit', $t['Tour']['id']), array('class' => 'btn btn-primary btn-sm')
+						);
+						echo ' ';
 						echo $this->Form->postLink(
 							'Delete',
 							array('action' => 'delete', $t['Tour']['id']),
