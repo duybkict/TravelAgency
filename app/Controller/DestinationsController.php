@@ -8,10 +8,11 @@ class DestinationsController extends AppController {
 	public $admin_paginate = array('limit' => 10);
 	public $helpers = array('TinyMCE.TinyMCE');
 
-	public function beforeRender()
+	public function beforeFilter()
 	{
-		parent::beforeRender();
+		parent::beforeFilter();
 		$this->set('title_for_layout', 'Bon Voyage | Destinations');
+		$this->Auth->deny(array('admin_index', 'admin_edit', 'admin_delete'));
 	}
 
 	public function index()
