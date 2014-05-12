@@ -9,6 +9,8 @@
 			<ul class="nav navbar-nav">
 				<li><?php echo $this->Html->link('Destinations', array('controller' => 'destinations', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Tours', array('controller' => 'tours', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Orders', array('controller' => 'orders', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index')); ?></li>
 			</ul>
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">

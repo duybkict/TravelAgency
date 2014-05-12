@@ -26,7 +26,7 @@
 	</head>
 	<body>
 		<?php 
-		if ($this->request->controller != 'users' && $this->request->action != 'admin_login')
+		if ($this->request->controller != 'users' || $this->request->action != 'admin_login')
 			echo $this->element('admin_navigation'); 
 		
 		?>

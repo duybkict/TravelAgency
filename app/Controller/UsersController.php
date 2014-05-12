@@ -4,6 +4,14 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
 
+	public $admin_paginate = array(
+		'limit' => 10,
+		'order' => array(
+			'User.modified' => 'desc',
+			'User.created' => 'desc',
+		)		
+	);
+
 	public function beforeFilter()
 	{
 		parent::beforeFilter();
@@ -27,6 +35,13 @@ class UsersController extends AppController {
 	{		
 		$this->Session->setFlash(__('Logout successfully'), 'flash_success');
 		return $this->redirect($this->Auth->logout());
+	}
+	
+	public function admin_index()
+	{
+		$users = $this->Paginator->paginate();
+
+		$this->set(compact('users'));
 	}
 
 }

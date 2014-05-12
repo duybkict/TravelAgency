@@ -103,5 +103,12 @@ class OrdersController extends AppController {
 
 		return $this->redirect(array('controller' => 'pages', 'action' => 'checkout'));
 	}
+	
+	public function admin_index()
+	{
+		$orders = $this->Paginator->paginate('Order');
+
+		$this->set(compact('orders'));
+	}
 
 }
