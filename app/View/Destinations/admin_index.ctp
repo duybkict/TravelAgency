@@ -3,6 +3,10 @@
 	<h1>Destinations Management</h1>
 
 	<?php echo $this->Session->flash(); ?>
+	
+	<a href="<?php echo $this->Html->url(array('action' => 'edit')); ?>" class="btn btn-success btn-sm">
+		<span class="glyphicon glyphicon-plus"></span> Add new Destination
+	</a>
 
 	<table class="table table-striped">
 		<thead>

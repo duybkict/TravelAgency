@@ -3,6 +3,10 @@
 	<h1>Tours Management</h1>
 	
 	<?php echo $this->Session->flash(); ?>
+	
+	<a href="<?php echo $this->Html->url(array('action' => 'edit')); ?>" class="btn btn-success btn-sm">
+		<span class="glyphicon glyphicon-plus"></span> Add new Tour
+	</a>
 
 	<table class="table table-striped">
 		<thead>

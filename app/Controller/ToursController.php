@@ -5,7 +5,14 @@ App::uses('AppController', 'Controller');
 class ToursController extends AppController {
 
 	public $paginate = array('limit' => 8);
-	public $admin_paginate = array('limit' => 10);
+	public $admin_paginate = array(
+		'limit' => 10,
+		'order' => array(
+			'Tour.published_date' => 'desc',
+			'Tour.modified' => 'desc',
+			'Tour.created' => 'desc',
+		)		
+	);
 	public $helpers = array('TinyMCE.TinyMCE');
 
 	public function beforeFilter()
@@ -53,14 +60,14 @@ class ToursController extends AppController {
 	
 	public function admin_edit($id = null)
 	{
-		if (!$id) {
-			throw new NotFoundException(__('Invalid record'));
-		}
+//		if (!$id) {
+//			throw new NotFoundException(__('Invalid record'));
+//		}
 
 		$tour = $this->Tour->findById($id);
-		if (!$tour) {
-			throw new NotFoundException(__('Invalid record'));
-		}
+//		if (!$tour) {
+//			throw new NotFoundException(__('Invalid record'));
+//		}
 
 		if ($this->request->is(array('post', 'put'))) {
 			$this->Tour->id = $id;

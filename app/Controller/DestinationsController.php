@@ -5,7 +5,14 @@ App::uses('AppController', 'Controller');
 class DestinationsController extends AppController {
 
 	public $paginate = array('limit' => 5);
-	public $admin_paginate = array('limit' => 10);
+	public $admin_paginate = array(
+		'limit' => 10,
+		'order' => array(
+			'Destination.published_date' => 'desc',
+			'Destination.modified' => 'desc',
+			'Destination.created' => 'desc',
+		)
+	);
 	public $helpers = array('TinyMCE.TinyMCE');
 
 	public function beforeFilter()
@@ -31,14 +38,14 @@ class DestinationsController extends AppController {
 
 	public function admin_edit($id = null)
 	{
-		if (!$id) {
-			throw new NotFoundException(__('Invalid record'));
-		}
+//		if (!$id) {
+//			throw new NotFoundException(__('Invalid record'));
+//		}
 
 		$destination = $this->Destination->findById($id);
-		if (!$destination) {
-			throw new NotFoundException(__('Invalid record'));
-		}
+//		if (!$destination) {
+//			throw new NotFoundException(__('Invalid record'));
+//		}
 
 		if ($this->request->is(array('post', 'put'))) {
 			$this->Destination->id = $id;
