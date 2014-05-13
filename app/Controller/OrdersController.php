@@ -5,6 +5,12 @@ App::uses('Controller', 'Controller');
 class OrdersController extends AppController {
 
 	public $uses = array('Tour', 'Order', 'OrderItem');
+	
+	public function beforeFilter()
+	{
+		parent::beforeFilter();
+		$this->Auth->deny('admin_index');
+	}
 
 	public function addToCart($id, $quantity = null)
 	{
