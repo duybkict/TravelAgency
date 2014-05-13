@@ -9,7 +9,7 @@ class OrdersController extends AppController {
 	public function beforeFilter()
 	{
 		parent::beforeFilter();
-		$this->Auth->deny('admin_index');
+		$this->Auth->deny('admin_index', 'admin_edit', 'admin_delete');
 	}
 
 	public function addToCart($id, $quantity = null)
@@ -115,6 +115,43 @@ class OrdersController extends AppController {
 		$orders = $this->Paginator->paginate('Order');
 
 		$this->set(compact('orders'));
+	}
+	
+	public function admin_edit($id)
+	{
+		if (!$id) {
+			throw new NotFoundException(__('Invalid record'));
+		}
+
+		$order = $this->Order->findById($id);
+		if (!$order) {
+			throw new NotFoundException(__('Invalid record'));
+		}
+
+		if ($this->request->is(array('post', 'put'))) {
+			$this->Order->id = $id;
+			if ($this->Order->save($this->request->data)) {
+				$this->Session->setFlash(__('Update successfully.'), 'flash_success');
+				return $this->redirect(array('action' => 'index'));
+			}
+			$this->Session->setFlash(__('Update failed.'));
+		}
+		
+		if (!$this->request->data) {
+			$this->request->data = $order;
+		}
+	}
+
+	public function admin_delete($id)
+	{
+		if ($this->request->is('get')) {
+			throw new MethodNotAllowedException();
+		}
+
+		if ($this->Order->delete($id)) {
+			$this->Session->setFlash(__('The order with id: %s has been deleted.', h($id)), 'flash_success');
+			return $this->redirect(array('action' => 'index'));
+		}
 	}
 
 }

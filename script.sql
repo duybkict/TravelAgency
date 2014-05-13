@@ -42,7 +42,7 @@ CREATE TABLE users (
 CREATE TABLE orders (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	email VARCHAR(128) NOT NULL,
-	status INT DEFAULT 1, -- 1: pending, 2: confirmed, 3: canceled
+	status INT DEFAULT 0, -- 0: pending, 1: confirmed, 2: canceled
 	created DATETIME,
 	modified DATETIME
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;

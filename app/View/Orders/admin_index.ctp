@@ -1,3 +1,5 @@
+<?php $statuses = array('Pending', 'Confirmed', 'Canceled'); ?>
+
 <div class="col-xs-12 well content">
 	<h1>Orders Management</h1>
 
@@ -19,9 +21,20 @@
 				<tr>
 					<td><?php echo $o['Order']['id']; ?></td>
 					<td><?php echo $o['Order']['email']; ?></td>
-					<td><?php echo $o['Order']['status']; ?></td>					
+					<td><?php echo $statuses[$o['Order']['status']]; ?></td>					
 					<td><?php echo $o['Order']['modified']; ?></td>
 					<td><?php echo $o['Order']['created']; ?></td>
+					<td width="125px;">
+						<?php
+						echo $this->Html->link(
+							'Edit', array('action' => 'edit', $o['Order']['id']), array('class' => 'btn btn-primary btn-sm')
+						);
+						echo ' ';
+						echo $this->Form->postLink(
+							'Delete', array('action' => 'delete', $o['Order']['id']), array('class' => 'btn btn-danger btn-sm'), 'Are you sure?'
+						);
+						?>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>
