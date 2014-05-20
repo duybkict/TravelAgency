@@ -14,7 +14,17 @@
 	echo $this->Form->input('email', array('disabled' => true));
 	echo $this->Form->input('status', array('type' => 'select', 'options' => $statusOptions));
 	echo $this->Form->input('id', array('type' => 'hidden'));
-	echo $this->Form->end('Save');
 	?>
+	
+	<table>
+	<?php foreach ($this->request->data['OrderItem'] as $item) : var_dump($item); ?>
+		<tr>
+			<td><?php echo $item['Tour']['details'].': '.$item['Tour']['name']; ?></td>
+			<td><?php echo '$'.$item['Tour']['price']; ?></td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+	
+	<?php echo $this->Form->end('Save'); ?>
 
 </div>

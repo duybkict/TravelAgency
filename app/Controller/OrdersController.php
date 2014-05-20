@@ -137,6 +137,11 @@ class OrdersController extends AppController {
 			$this->Session->setFlash(__('Update failed.'));
 		}
 		
+		foreach ($order['OrderItem'] as $k => $item) {
+			$item['Tour'] = $this->Tour->findById($item['tour_id'])['Tour'];
+			$order['OrderItem'][$k] = $item;
+		}
+		
 		if (!$this->request->data) {
 			$this->request->data = $order;
 		}
