@@ -6,6 +6,27 @@ class Tour extends AppModel {
 
 	public $belongsTo = array('Destination');
 //	public $hasMany = array('OrderItem');
+	
+	public $validate = array(
+		'name' => array(
+			'required' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Name is required'
+			)
+		),
+		'short_description' => array(
+			'required' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Short description is required'
+			)
+		),
+		'description' => array(
+			'required' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Description is required'
+			)
+		),
+	);
 
 	public function beforeSave($options = array())
 	{

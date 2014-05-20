@@ -12,12 +12,12 @@
 				<li><?php echo $this->Html->link('Orders', array('controller' => 'orders', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index')); ?></li>
 			</ul>
-			<form class="navbar-form navbar-left" role="search">
+<!--			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search">
 				</div>
 				<button type="submit" class="btn btn-default">Submit</button>
-			</form>
+			</form>-->
 			<ul class="nav navbar-nav navbar-right">
 				<li><?php echo $this->Html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?></li>
 			</ul>
